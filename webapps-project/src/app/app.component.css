@@ -1,0 +1,11 @@
+.article{
+    display:inline-block;
+    float:left;
+    left:50%;
+    
+}
+
+.content{
+    display:block;
+    width:100%;
+}
