@@ -1,3 +1,5 @@
+import { Article } from '../../models/Article';
+import { ArticleService } from '../services/article.service';
 import { Component, OnInit } from '@angular/core';
 declare var jquery: any;
 declare var $: any;
@@ -8,20 +10,11 @@ declare var $: any;
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-  name: String;
-  title: String;
-  text: String;
-  picturePath: String;
-  likes: number;
+  private articles = [];
 
-  comments: String;
-
-  constructor() {
-    this.name = 'Arne Deman';
-    this.title = 'Liefde';
-    this.text = 'Ik wil jullie allemaal laten weten dat ik mijn ventje dood graag zie! Love Jess Arschoot!';
-    this.picturePath = '../../assets/images/IMG_2063.jpg';
-    this.likes = 2013;
+  constructor(private service: ArticleService) {
+    this.service.articles.subscribe(data =>  this.articles = data)
+    console.log(this.articles);
    }
 
   ngOnInit() {
@@ -31,7 +24,7 @@ export class ArticleComponent implements OnInit {
   addLike(): void
   // tslint:disable-next-line:one-line
   {
-    this.likes++;
+    //this.likes++;
   }
   makeComment(): void {
     $('.add-comment').show();

@@ -1,10 +1,8 @@
-.article{
-    display:inline-block;
-    float:left;
-    left:50%;
-    
-}
 
+.article{
+    display:inline;
+   vertical-align: bottom;
+}
 .content{
     display:block;
     width:100%;

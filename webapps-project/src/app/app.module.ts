@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-
+import { Component, NgModule } from '@angular/core';
+import {RouterModule} from '@angular/router';
+import { HttpModule } from '@angular/http'
 import { AppComponent } from './app.component';
 import { ArticleComponent } from './article/article.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { ArticleService } from './services/article.service';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,13 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
     AddCommentComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule,
+    // RouterModule.forRoot{[
+       // {'', component: RankingComponent},
+    // ]},
   ],
-  providers: [],
+  providers: [ArticleService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
