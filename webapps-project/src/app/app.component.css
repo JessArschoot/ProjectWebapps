@@ -1,4 +1,7 @@
-
+body{
+    width:100%;
+    height:100%;
+}
 .article{
     display:inline;
    vertical-align: bottom;
@@ -6,4 +9,49 @@
 .content{
     display:block;
     width:100%;
+    margin-top:6em;
+}
+header{
+    display:block;
+    top:0;
+    position:fixed;
+    width:100%;
+    margin:0;
+    color:white;
+    background-color:#14ADE0;
+    z-index:1;
+    height:3em;
+    text-align: left;
+    font-size:2em;
+    padding: 2% 2% 0 2%;
+}
+nav{
+    display:inline;
+    float:right;
+    width:30%;
+}
+nav a{
+    width:10%;
+    margin-left:3%;
+    color:white;
+}
+nav a:hover{
+    border-bottom: 2px solid #3F7D91;
+    padding-bottom:.5em;
+
+}
+.logo{
+    display:inline;
+    width:50%;
+}
+
+footer{
+    display:block;
+    bottom:0;
+    position:fixed;
+    width:100%;
+    text-align: center;
+    color:white;
+    z-index:1;
+    background-repeat: repeat-y;
 }

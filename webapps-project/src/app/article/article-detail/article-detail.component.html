@@ -1,0 +1,54 @@
+<div *ngIf="_article">
+        <div class="ui raised link card">
+                <div class="content">
+                    
+                        <div class="header">{{_article.title}}</div>
+                        <div class="meta">{{_article.date | date: 'dd/MM/yyyy'}}</div>
+                        <div class="meta">{{_article.name}}</div>
+                  
+                  <div class="description">
+                    <p>{{_article.text}}</p>
+                  </div>
+                  </div>
+                  <div class="extra content">
+                        <div class="meta">
+                             <a class="like " (click)="addLike()">
+                               <i class="like icon" *ngIf='_like'></i> {{_article.likes}} Likes
+                             </a>
+                             <a class="comment" (click)="makeComment()">
+                                 <i class="comment icon"></i>{{_article.comments.length}} Comments
+                               </a>
+                           </div>
+                    </div>
+                    <div *ngIf="_comment">
+                      <div class="comments">
+                        <div  *ngFor='let feed of _article.comments'>
+                            <div class="comment">
+                              <div class="content">
+                                <a class="author">{{feed.username}} 
+                                  <sub>{{feed.date | date : 'dd/MM/yyyy'}}</sub>
+                                </a>
+                                <div class="text">
+                                  {{feed.text}}
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                    
+                      <form [formGroup]='comment' class="ui reply form">
+                        <div class="field">
+                          <textarea formControlName='text'></textarea>
+                        </div>
+                        <div class="metadata">
+                          <span>{{user}}</span>
+                        </div>
+                        <div class="ui blue labeled submit icon button" (click)="addComment()">
+                          <i class="icon edit" ></i> Add Reply
+                        </div>
+                       
+                        
+                      </form>
+                    </div>
+                </div>
+              </div>

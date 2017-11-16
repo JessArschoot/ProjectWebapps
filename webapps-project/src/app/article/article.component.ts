@@ -1,6 +1,6 @@
-import { Article } from '../../models/Article';
-import { ArticleService } from '../services/article.service';
-import { Component, OnInit } from '@angular/core';
+import { Article } from './Article';
+import { ArticleService } from './article.service';
+import { Component, Input, OnInit } from '@angular/core';
 declare var jquery: any;
 declare var $: any;
 
@@ -10,23 +10,13 @@ declare var $: any;
   styleUrls: ['./article.component.css']
 })
 export class ArticleComponent implements OnInit {
-  private articles = [];
-
+  @Input() public article: Article
   constructor(private service: ArticleService) {
-    this.service.articles.subscribe(data =>  this.articles = data)
-    console.log(this.articles);
+    
    }
 
   ngOnInit() {
+    
   }
 
-
-  addLike(): void
-  // tslint:disable-next-line:one-line
-  {
-    //this.likes++;
-  }
-  makeComment(): void {
-    $('.add-comment').show();
-  }
 }

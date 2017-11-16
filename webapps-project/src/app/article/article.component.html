@@ -1,8 +1,8 @@
-<div *ngFor ="let article of articles" >
+
   <div  class="ui raised link card">
     <div class="content">
       <div class="header">
-        <a href=#>{{article.title}}</a></div>
+        <a [routerLink]="[article._id]">{{article.title}}</a></div>
      
       <div class="description">
         <p>{{article.text}}</p>
@@ -10,11 +10,11 @@
     </div>
     <div class="extra content">
        <div class="meta">
-            <a class="like " (click)="addLike()">
+            <a class="like ">
               <i class="like icon"></i> {{article.likes}} Likes
             </a>
-            <a class="comment" (click)="makeComment()">
-                <i class="comment icon"></i>{{article.comments}} Comments
+            <a class="comment" >
+                <i class="comment icon"></i>{{article.comments.length}} Comments
               </a>
           </div>
       <div class="right floated author">
@@ -22,8 +22,5 @@
         <sub>{{article.date | date: 'dd/MM/yyyy'}}</sub>
       </div>
     </div>
-    <div class="add-comment">
-      <app-add-comment></app-add-comment>
-      </div>
   </div>
-</div>
+

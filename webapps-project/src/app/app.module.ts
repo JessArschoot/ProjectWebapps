@@ -1,26 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { Component, NgModule } from '@angular/core';
-import {RouterModule} from '@angular/router';
-import { HttpModule } from '@angular/http'
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 import { AppComponent } from './app.component';
-import { ArticleComponent } from './article/article.component';
-import { AddCommentComponent } from './add-comment/add-comment.component';
-import { ArticleService } from './services/article.service';
+//import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ArticleComponent,
-    AddCommentComponent
+    //PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
-    // RouterModule.forRoot{[
-       // {'', component: RankingComponent},
-    // ]},
+    UserModule,
+    AppRoutingModule
   ],
-  providers: [ArticleService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
