@@ -1,10 +1,10 @@
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { Article } from '../Article';
-import { Comment } from '../Comment';
+import { Article } from '../models/Article';
+import { Comment } from '../models/Comment';
 
 import { ActivatedRoute } from '@angular/router';
-import { ArticleService } from '../article.service';
+import { ArticleService } from '../services/article.service';
 
 @Component({
   selector: 'app-article-detail',
@@ -68,12 +68,12 @@ export class ArticleDetailComponent implements OnInit {
     var model = {
       name: this.user,
       date: new Date(),
-      text: this.comment.value,
+      text: this.comment.value.text,
     }
     this.service.addComment(this._article._id, model).subscribe(data => console.log(data));
-    this._article.comments.push(new Comment(model.name, model.date, model.text.text));
+    this._article.comments.push(new Comment(model.name, model.date, model.text));
     console.log(this._article.comments);
-    this._comment=false;
+    this.comment.get("text").setValue("");
   }
 
 }

@@ -1,5 +1,5 @@
 import { Observable } from 'rxjs/Rx';
-import { AuthenticationService } from './user/authentication.service';
+import { AuthenticationService } from './services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({

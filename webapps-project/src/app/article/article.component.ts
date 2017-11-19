@@ -1,5 +1,5 @@
-import { Article } from './Article';
-import { ArticleService } from './article.service';
+import { Article } from '../models/Article';
+import { ArticleService } from '../services/article.service';
 import { Component, Input, OnInit } from '@angular/core';
 declare var jquery: any;
 declare var $: any;
