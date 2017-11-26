@@ -5,7 +5,8 @@ var Schema = mongoose.Schema;
 var CommentSchema = new mongoose.Schema({
     date: Date,
     text: String,
-    username: String,    
+    username: String, 
+    userpic: String   
 });	
 
 module.exports = mongoose.model('Comment', CommentSchema);

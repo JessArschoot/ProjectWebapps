@@ -15,6 +15,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
+import { UserService} from './services/user.service';
 //import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
@@ -47,7 +48,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes)
   ],
   providers: [ArticleResolverService, ArticleService,
-  AuthGuardService, AuthenticationService],
+  AuthGuardService, AuthenticationService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

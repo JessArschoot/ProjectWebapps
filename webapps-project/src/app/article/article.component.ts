@@ -12,7 +12,6 @@ declare var $: any;
 export class ArticleComponent implements OnInit {
   @Input() public article: Article
   constructor(private service: ArticleService) {
-    
    }
 
   ngOnInit() {

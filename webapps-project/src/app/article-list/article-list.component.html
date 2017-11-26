@@ -1,4 +1,4 @@
-<div >
+<div class='add'>
     <form [formGroup]='article' class="ui reply form">
       <h2>Voeg artikel toe</h2>
       <div class="field">
@@ -6,6 +6,9 @@
       </div>
       <div class="field">
         <textarea formControlName='text'></textarea>
+      </div>
+      <div>
+         <input name="picture" id='picture' type="file" #fileInput>
       </div>
       <div class="ui blue labeled submit icon button" (click)="addArticle()">
         <i class="icon edit" ></i> Add article

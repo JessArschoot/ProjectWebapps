@@ -1,10 +1,10 @@
 import { Observable } from 'rxjs/Rx';
 import { AuthenticationService } from '../services/authentication.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators, FormControl } from '@angular/forms';
-
-
+import { ngfModule, ngf } from "angular-file"
+import { FileUploader } from "angular-file";
 
 function passwordValidator(length: number): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } => {
@@ -26,8 +26,10 @@ function comparePasswords(control: AbstractControl): { [key: string]: any } {
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
+  
+  @ViewChild('fileInput') fileInput;
   public user: FormGroup;
-
+  
   get passwordControl(): FormControl {
     return <FormControl>this.user.get('passwordGroup').get('password');
   }
@@ -56,12 +58,44 @@ export class RegisterComponent implements OnInit {
     };
   }
 
+   previewFile() {
+    var preview = document.getElementById('previewPic');
+    var file    = this.fileInput.nativeElement.files[0];
+    var reader  = new FileReader();
+    reader.addEventListener("loadend", function () {
+      preview.setAttribute('src', reader.result);
+      
+    }, true);
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+  }
   onSubmit() {
-    this.authenticationService.register(this.user.value.username, this.passwordControl.value, this.user.value.name).subscribe(val => {
+    let fileBrowser = this.fileInput.nativeElement;
+    let data;
+  
+    let f = fileBrowser.files[0];
+   
+    let r = new FileReader();
+    r.readAsDataURL(f);
+    r.onload= (e) => {
+    data = r.result.split(',')[1];
+    this.authenticationService.register(this.user.value.username, this.passwordControl.value, this.user.value.name, data).subscribe(val => {
       if (val) {
         this.router.navigate(['article/list']);
       }
+
     });
+
+    //console.log(data2);
+    //send your binary data via $http or $resource or do anything else with it
+    }  
+    //console.log(data.result);  
+    
+    
   }
+
 }
+
 

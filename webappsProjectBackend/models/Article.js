@@ -3,7 +3,8 @@ var User = require('./User');
 var Comment = require('./Comment');
 var Schema = mongoose.Schema;
 var ArticleSchema = new mongoose.Schema({
-    name: String,
+    username: String,
+    userpic: String,
     date: Date,
     title: String,
     text: String,

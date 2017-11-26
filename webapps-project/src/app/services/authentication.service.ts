@@ -1,3 +1,5 @@
+import * as buffer from 'buffer';
+import { identity } from 'rxjs/util/identity';
 import { BehaviorSubject, Observable } from 'rxjs/Rx';
 import { Http, Response } from '@angular/http';
 import { Injectable } from '@angular/core';
@@ -45,8 +47,11 @@ export class AuthenticationService {
     }
   }
 
-  register(username: string, password: string, name:string): Observable<boolean> {
-    return this.http.post(`${this._url}/register`, { username: username, password: password, name:name})
+  register(username: string, password: string, name:string, picture:any): Observable<boolean> {
+   
+  
+   
+    return this.http.post(`${this._url}/register`, { username: username, password: password, name:name, picture: picture})
       .map(res => res.json()).map(res => {
         const token = res.token;
         if (token) {

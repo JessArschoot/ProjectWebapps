@@ -13,6 +13,13 @@
       a user with that name already exists
     </div>
   </div>
+  <div>
+    <input name="picture" id='picture' type="file" #fileInput (change)='previewFile()'>
+    <br>
+    <img id="previewPic" height="200" alt="Image preview...">
+    
+  </div>
+  
   <div class="field">
       <label for="name">Name:</label>
       <input type="name" id="name" formControlName='name'>

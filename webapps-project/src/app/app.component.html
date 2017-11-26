@@ -2,7 +2,7 @@
     <div class="logo">WanderFull</div>
     <nav>
       <a class='item' routerLinkActive='active' routerLink="article/list" >Articles</a>
-      <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/logout">{{currentUser|async}}</a>
+      <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/logout">{{currentUser|async}} </a>
       <ng-template #loginlink>
         <a class="item" routerLinkActive='active' routerLink="/login">log in</a>
       </ng-template>
