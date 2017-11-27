@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
-  private _url = 'https://webapps-backend-jess.herokuapp.com/API/users';
+  private _url = 'API/users';
   private _user$: BehaviorSubject<string>;
 
   public redirectUrl: string;
