@@ -7,7 +7,7 @@ var Comment = mongoose.model('Comment');
 
 
 let jwt = require('express-jwt');
-let auth = jwt({secret: "IfThisEndsUpInGithubYouFailTheClass", userProperty: 'payload'});
+let auth = jwt({secret: ARTICLE_BACKEND_SECRET, userProperty: 'payload'});
 /* GET home page. */
 router.get('/articles', function(req, res, next) {
   Article.find({}).populate('user').exec( function(err, article){
