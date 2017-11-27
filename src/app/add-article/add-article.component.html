@@ -8,8 +8,8 @@
       </div>
       <div class="field">
           <label for="nation">Land
-          <select  *ngFor='let nation of nations' formControleName="nation" name="nation"> 
-              <option >{{nation.value}}</option>
+          <select   formControleName="nation" name="nation"> 
+              <option *ngFor='let nation of nations' >{{nation.value}}</option>
               
           </select>
           </label>
