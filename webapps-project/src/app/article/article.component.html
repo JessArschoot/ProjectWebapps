@@ -3,11 +3,11 @@
   <div  class="ui raised link card">
     <div class="content">
       <div class="header">
-        <a [routerLink]="[article._id]">{{article.title}}</a></div>
+        <a [routerLink]="[article._id]">{{article.nation}} -- {{article.title}}</a></div>
      
       <div class="description">
         <p>{{article.text}}</p>
-        <a [routerLink]="[article._id]"><img class="ui image" src="data:image/jpg;base64,{{article.picture}}"></a>
+        <a [routerLink]="[article._id]"><img class="ui image" src="data:image/jpg;base64,{{article.picture}}"  style="max-height:200px"></a>
         
       </div>
     </div>

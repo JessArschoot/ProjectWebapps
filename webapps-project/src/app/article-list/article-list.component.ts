@@ -15,12 +15,13 @@ import { UserService } from '../services/user.service';
 export class ArticleListComponent implements OnInit {
   @ViewChild('fileInput') fileInput;
   private _articles: Article[];
-  private article: FormGroup;
   private user: string;
   private _user: User;
 
     constructor(private fb: FormBuilder, private service: ArticleService, private userService: UserService) {
-      this.user = JSON.parse(localStorage.getItem('currentUser')).username;
+        let jsonUser = JSON.parse(localStorage.getItem('currentUser'))
+        this.user = jsonUser? jsonUser.username:null;
+      
       
     }
   
@@ -28,44 +29,13 @@ export class ArticleListComponent implements OnInit {
         this.service.articles
           .subscribe(items =>{ this._articles = items, console.log(items)});
 
-          this.userService.getUser(this.user).subscribe(data => {
-
-            this._user = new User(data.name, data.username, data.picture)
-          });
-
-        this.article = this.fb.group({
-          title: ['', [Validators.required, Validators.minLength(2)]],
-          text: ['', [Validators.required, Validators.minLength(20)]],
-        });
+          
+    }
+    addArticle(article: Article){
+        this._articles.push(article);
     }
     get articles() {
       return this._articles;
     }
-    addArticle(){
-      let fileBrowser = this.fileInput.nativeElement;
-      
     
-      let f = fileBrowser.files[0];
-     
-      let r = new FileReader();
-      r.readAsDataURL(f);
-      r.onload= (e) => {
-      var data = r.result.split(',')[1];
-      var model = {
-        username: this._user.username,
-        userpic: this._user.picture,
-        date: new Date(),
-        title: this.article.value.title,
-        text: this.article.value.text,
-        picture: data,
-        likes: 0,
-        
-      }
-      this.service.addArticle(model).subscribe(data => console.log(data));
-      this._articles.push(new Article(this._user.username, this._user.picture, model.date, model.title, model.text, model.likes,[], model.picture));
-      this.article.get("text").setValue("");
-      this.article.get("title").setValue("");
-      }
-     
-    }
 }

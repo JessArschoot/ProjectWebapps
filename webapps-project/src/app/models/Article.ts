@@ -4,6 +4,7 @@ export class Article {
     _id: string;
     username:string;
     userpic: string;
+    nation: string
     date: Date;
     title:string;
     text:string;
@@ -12,9 +13,10 @@ export class Article {
     likes: number;
     comments:Comment[];
 
-    constructor(username: string, userpic:string, date: Date, title: string, text: string, likes: number, comments: Comment[], picture:string){
+    constructor(username: string, userpic:string,nation:string, date: Date, title: string, text: string, likes: number, comments: Comment[], picture:string){
         this.username = username;
         this.userpic = userpic;
+        this.nation = nation;
         this.date = date;
         this.title = title;
         this.text = text;

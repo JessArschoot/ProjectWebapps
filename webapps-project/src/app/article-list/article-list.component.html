@@ -1,24 +1,15 @@
-<div class='add'>
-    <form [formGroup]='article' class="ui reply form">
-      <h2>Voeg artikel toe</h2>
-      <div class="field">
-        <input type="text" value="title" formControlName="title"/>
-      </div>
-      <div class="field">
-        <textarea formControlName='text'></textarea>
-      </div>
-      <div>
-         <input name="picture" id='picture' type="file" #fileInput>
-      </div>
-      <div class="ui blue labeled submit icon button" (click)="addArticle()">
-        <i class="icon edit" ></i> Add article
-      </div>
-    </form>
+
+<div *ngIf='user'>
+        <app-add-article (event)='addArticle($event)'></app-add-article>
+    </div>
+<div class="ui grid">
+    <div *ngFor="let article of articles" class="four wide column">
+      <app-article  [article]="article" >
+      </app-article>
+    </div>
+
 </div>
 
-<div class="ui grid ">
-    <div class=" wide column">
-  <app-article *ngFor="let article of articles" [article]="article" >
-  </app-article>
-  </div>
-</div>
+
+    
+

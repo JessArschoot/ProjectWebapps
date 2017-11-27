@@ -1,23 +1,24 @@
-<header>
+<div class="ui header customheader">
     <div class="logo">WanderFull</div>
     <nav>
       <a class='item' routerLinkActive='active' routerLink="article/list" >Articles</a>
-      <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/logout">{{currentUser|async}} </a>
+      <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/user">{{currentUser|async}} </a>
       <ng-template #loginlink>
         <a class="item" routerLinkActive='active' routerLink="/login">log in</a>
       </ng-template>
+     
+      <a class='item' *ngIf='!currentuser' routerLinkActive='active' routerLink="/logout" >Log out</a>
+      
     </nav>
     
 
-</header>
-<div class="content"> 
+  </div>
+<div class="ui container wrapper"> 
   
-<div class="col-xs-10 col-x">
+
        <router-outlet></router-outlet>
-       
-    </div>
+ </div>
   
-</div>
 
 <footer>©Jess Arschoot</footer>
 

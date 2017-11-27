@@ -16,6 +16,9 @@ import { RegisterComponent } from './register/register.component';
 import { LogoutComponent } from './logout/logout.component';
 import { ArticleDetailComponent } from './article-detail/article-detail.component';
 import { UserService} from './services/user.service';
+import { AddArticleComponent } from './add-article/add-article.component';
+import { UserComponent } from './user/user.component';
+import { NationsComponent } from './nations/nations.component';
 //import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
@@ -24,8 +27,9 @@ const appRoutes: Routes = [
    { path: "article/list", component: ArticleListComponent},
    { path: "login", component: LoginComponent},
    { path: "register", component: RegisterComponent},
+   { path: "user", component: UserComponent, canActivate: [ AuthGuardService ]},
    { path: "logout", component: LogoutComponent},
-   { path: "**", component: ArticleListComponent }
+   { path: "**", redirectTo:'article/list' }
  
  ];
 @NgModule({
@@ -38,6 +42,9 @@ const appRoutes: Routes = [
     RegisterComponent,
     LogoutComponent,
     ArticleListComponent,
+    AddArticleComponent,
+    UserComponent,
+    NationsComponent,
     //PageNotFoundComponent
   ],
   imports: [

@@ -1,0 +1,33 @@
+<div class='add'>
+    <form [formGroup]='article' class="ui reply form" (ngSubmit)="addArticle()">
+      <h2>Voeg artikel toe</h2>
+      <div class="field">
+        <label>Title
+        <input type="text" value="title" formControlName="title"/>
+        </label>
+      </div>
+      <div class="field">
+          <label for="nation">Land
+          <select  formControleName="nation" name="nation"> 
+              <option name="Frankrijk">Frankrijk</option>
+              <option name="Spanje">Spanje</option>
+              <option name="Italie">Italië</option>
+              <option name="Amerika">Amerika</option>
+          </select>
+          </label>
+      </div>
+      <div class="field">
+          <label>Artikel
+        <textarea formControlName='text'></textarea>
+        </label>
+      </div>
+      <div>
+          <label>Foto
+         <input name="picture" id='picture' type="file" #fileInput>
+        </label>
+      </div>
+  
+        <input class="ui primary button " type="submit" value="Toevoegen"/>
+      
+    </form>
+</div>
