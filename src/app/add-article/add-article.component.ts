@@ -21,6 +21,7 @@ export class AddArticleComponent implements OnInit {
   
   constructor(private fb: FormBuilder, private service: ArticleService, private userService: UserService) { 
     this.user = JSON.parse(localStorage.getItem('currentUser')).username;
+  
   }
 
   ngOnInit() {
@@ -37,13 +38,8 @@ export class AddArticleComponent implements OnInit {
   }
 
   addArticle(){
-   
-
     let fileBrowser = this.fileInput.nativeElement;
-    
-  
     let f = fileBrowser.files[0];
-   
     let r = new FileReader();
     r.readAsDataURL(f);
     r.onload= (e) => {
