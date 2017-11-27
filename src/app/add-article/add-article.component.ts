@@ -14,7 +14,7 @@ import { Article } from '../models/Article';
 export class AddArticleComponent implements OnInit {
   private user: string;
   private _user: User;
-  private article: FormGroup;
+  public article: FormGroup;
   @Output() event = new EventEmitter<Article>();
   @ViewChild('fileInput') fileInput;
   

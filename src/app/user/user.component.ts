@@ -13,7 +13,7 @@ import { ArticleService } from '../services/article.service';
 export class UserComponent implements OnInit {
   private user: User;
   private _user: string;
-  private articles: Article[];
+  public articles: Article[];
 
   constructor(private service: UserService, private articleService: ArticleService) {
       //this._user = JSON.parse(localStorage.getItem('currentuser')).username;

@@ -14,7 +14,7 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./article-detail.component.css']
 })
 export class ArticleDetailComponent implements OnInit {
-  private _article: Article;
+  public _article: Article;
   private comment: FormGroup;
   private _comment: Boolean = false;
   private _like: Boolean = false;

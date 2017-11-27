@@ -15,8 +15,8 @@ import { UserService } from '../services/user.service';
 export class ArticleListComponent implements OnInit {
   @ViewChild('fileInput') fileInput;
   private _articles: Article[];
-  private user: string;
-  private _user: User;
+  public user: string;
+  public _user: User;
 
     constructor(private fb: FormBuilder, private service: ArticleService, private userService: UserService) {
         let jsonUser = JSON.parse(localStorage.getItem('currentUser'))
