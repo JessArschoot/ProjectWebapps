@@ -7,7 +7,7 @@ var Comment = mongoose.model('Comment');
 
 
 let jwt = require('express-jwt');
-let auth = jwt({secret: process.env.ARTICLE_BACKEND_SECRET, userProperty: 'payload'});
+let auth = jwt({secret:process.env.ARTICLE_BACKEND_SECRET, userProperty: 'payload'});
 /* GET home page. */
 router.get('/articles', function(req, res, next) {
   Article.find({}).populate('user').exec( function(err, article){
@@ -85,31 +85,5 @@ router.post('/article/add-comment/:id', auth, function(req, res, next){
     res.json(article);
   });
 });
-
-router.post('/articles/add', function(req, res, next){
-  var names = ["Jess Arschoot", "Arne Deman", "Jess Maelfeyt", "Jonas Ooghe", "Matz Arschoot"];
-  var titles = ["Veel liefde voor mijn moksje", "Fuck school", "SKE champion!", "Jana", "Sint Maarten vandaag"];
-  var text = ["love Arne Deman", "Veel te veel werk voor school!", "Alweer gewonnen, 5 punten los!", "Kzie ze wel zitten", "Een robot gekregen van me broer!"];
-  var likes = [345, 543, 1, 43, 432];
-  for(var i = 0; i<names.length; i++){
-
-    newArticle = new Article({
-    name: names[i],
-    title: titles[i],
-    date: new Date(),
-    text: text[i],
-    likes: likes[i],
-  });
-  newArticle.save(function(err, rec) {
-    if (err){ return next(err); }
-    
-  });
- 
-}
-res.json(newArticle);
-});
-
-
-
 
 module.exports = router;

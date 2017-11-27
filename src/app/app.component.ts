@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-
+  public user: string;
   constructor(private authService: AuthenticationService) {
+    this.currentUser.subscribe(data => this.user = data);
   }
 
   get currentUser(): Observable<string> {
