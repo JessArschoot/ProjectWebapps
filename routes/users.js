@@ -5,7 +5,7 @@ let passport = require('passport');
 let User = mongoose.model('User');
 
 let jwt = require('express-jwt');
-let auth = jwt({secret: 'IfThisEndsUpInGithubYouFailTheClass', userProperty: 'payload'});
+let auth = jwt({secret: process.env.ARTICLE_BACKEND_SECRET, userProperty: 'payload'});
 
 
 router.post('/register', function(req, res, next){
