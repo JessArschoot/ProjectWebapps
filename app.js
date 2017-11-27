@@ -6,8 +6,6 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var passport = require('passport');
-var fs = require('fs');
-var multer = require('multer');
 var upload = multer({ dest: 'uploads/' })
 
 require('./models/Article');

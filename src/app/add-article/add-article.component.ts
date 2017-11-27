@@ -1,4 +1,4 @@
-import { ValidateFn } from 'codelyzer/walkerFactory/walkerFn';
+
 import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { ArticleService } from '../services/article.service';
 import { UserService } from '../services/user.service';
