@@ -33,12 +33,13 @@ export class AddArticleComponent implements OnInit {
       
               this.article = this.fb.group({
                 title: ['', [Validators.required, Validators.minLength(2)]],
-                text: ['', [Validators.required, Validators.minLength(20)]]
+                text: ['', [Validators.required, Validators.minLength(20)]],
+                nation: ['Frankrijk', [Validators.required]]
               });
   }
 
-  addArticle(nation: string){
-    console.log(nation);
+  addArticle(){
+    console.log(this.article.value.nation);
     let fileBrowser = this.fileInput.nativeElement;
     let f = fileBrowser.files[0];
     let r = new FileReader();
@@ -49,7 +50,7 @@ export class AddArticleComponent implements OnInit {
       username: this._user.username,
       userpic: this._user.picture,
       date: new Date(),
-      nation: nation,
+      nation: this.article.value.nation,
       title: this.article.value.title,
       text: this.article.value.text,
       picture: data,
