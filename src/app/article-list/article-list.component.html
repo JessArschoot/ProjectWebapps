@@ -2,7 +2,7 @@
 <div *ngIf='user'>
         <app-add-article (event)='addArticle($event)' (nations)='setNations($_nations)'></app-add-article>
     </div>
-<div *ngIf='_nations'>
+<div >
     <div *ngFor='let nation of _nations'>
             {{nation}}
     </div>
