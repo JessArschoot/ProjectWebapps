@@ -24,7 +24,7 @@ import { UserComponent } from './user/user.component';
 const appRoutes: Routes = [
   
    { path: "article/list/:id", component: ArticleDetailComponent, canActivate: [ AuthGuardService ] , resolve: { article: ArticleResolverService}},
-   { path: "article/list", component: ArticleListComponent, canActivate: [ AuthGuardService ] },
+   { path: "article/list", component: ArticleListComponent},
    { path: "login", component: LoginComponent},
    { path: "register", component: RegisterComponent},
    { path: "user", component: UserComponent, canActivate: [ AuthGuardService ]},
