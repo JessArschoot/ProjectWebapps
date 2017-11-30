@@ -18,13 +18,13 @@ import { ArticleDetailComponent } from './article-detail/article-detail.componen
 import { UserService} from './services/user.service';
 import { AddArticleComponent } from './add-article/add-article.component';
 import { UserComponent } from './user/user.component';
-import { NationsComponent } from './nations/nations.component';
+
 //import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   
    { path: "article/list/:id", component: ArticleDetailComponent, canActivate: [ AuthGuardService ] , resolve: { article: ArticleResolverService}},
-   { path: "article/list", component: ArticleListComponent},
+   { path: "article/list", component: ArticleListComponent, canActivate: [ AuthGuardService ] },
    { path: "login", component: LoginComponent},
    { path: "register", component: RegisterComponent},
    { path: "user", component: UserComponent, canActivate: [ AuthGuardService ]},
@@ -44,7 +44,6 @@ const appRoutes: Routes = [
     ArticleListComponent,
     AddArticleComponent,
     UserComponent,
-    NationsComponent,
     //PageNotFoundComponent
   ],
   imports: [

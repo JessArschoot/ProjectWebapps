@@ -1,5 +1,5 @@
 <div class='add'>
-    <form [formGroup]='article' class="ui reply form" (ngSubmit)="addArticle()">
+    <form [formGroup]='article' class="ui reply form" (ngSubmit)="addArticle(nation.value)">
       <h2>Voeg artikel toe</h2>
       <div class="field">
         <label>Title
@@ -7,9 +7,9 @@
         </label>
       </div>
       <div class="field">
-          <label for="nation">Land
-          <select   formControleName="nation" name="nation"> 
-              <option *ngFor='let nation of nations' >{{nation}}</option>
+          <label >Land
+          <select > 
+              <option *ngFor='let nation of nations' #nation>{{nation}}</option>
               
           </select>
           </label>

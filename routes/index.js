@@ -5,9 +5,9 @@ var Article = mongoose.model('Article');
 var User = mongoose.model('User');
 var Comment = mongoose.model('Comment');
 
-
+//process.env.ARTICLE_BACKEND_SECRET
 let jwt = require('express-jwt');
-let auth = jwt({secret:process.env.ARTICLE_BACKEND_SECRET, userProperty: 'payload'});
+let auth = jwt({secret:'secret', userProperty: 'payload'});
 /* GET home page. */
 router.get('/articles', function(req, res, next) {
   Article.find({}).populate('user').exec( function(err, article){
@@ -25,7 +25,7 @@ router.get('/article/:id', auth, function(req, res, next) {
   })
 });
 router.post('/article/add-article', auth, function(req, res, next){
-  console.log(req.body.date);
+  console.log(req.body.nation);
 
   var newArticle = new Article({
     username: req.body.username,

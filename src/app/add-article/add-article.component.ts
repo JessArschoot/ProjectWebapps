@@ -15,7 +15,7 @@ export class AddArticleComponent implements OnInit {
   private user: string;
   private _user: User;
   public article: FormGroup;
-  public nations: ['Frankrijk', 'Spanje', 'Italië', 'Amerika', 'België', 'Duitsland'];
+  public  nations: string[];
   @Output() event = new EventEmitter<Article>();
   @ViewChild('fileInput') fileInput;
   
@@ -25,6 +25,7 @@ export class AddArticleComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.nations= ['Frankrijk', 'Spanje', 'Italië', 'Amerika', 'België', 'Duitsland'];
     this.userService.getUser(this.user).subscribe(data => {
       
                   this._user = new User(data.name, data.username, data.picture)
@@ -32,12 +33,12 @@ export class AddArticleComponent implements OnInit {
       
               this.article = this.fb.group({
                 title: ['', [Validators.required, Validators.minLength(2)]],
-                text: ['', [Validators.required, Validators.minLength(20)]],
-                nation: ['', [Validators.required]]
+                text: ['', [Validators.required, Validators.minLength(20)]]
               });
   }
 
-  addArticle(){
+  addArticle(nation: string){
+    console.log(nation);
     let fileBrowser = this.fileInput.nativeElement;
     let f = fileBrowser.files[0];
     let r = new FileReader();
@@ -48,7 +49,7 @@ export class AddArticleComponent implements OnInit {
       username: this._user.username,
       userpic: this._user.picture,
       date: new Date(),
-      nation: this.article.value.nation,
+      nation: nation,
       title: this.article.value.title,
       text: this.article.value.text,
       picture: data,

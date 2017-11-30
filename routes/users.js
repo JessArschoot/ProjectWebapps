@@ -3,9 +3,9 @@ var router = express.Router();
 let mongoose = require('mongoose');
 let passport = require('passport');
 let User = mongoose.model('User');
-
+//process.env.ARTICLE_BACKEND_SECRET
 let jwt = require('express-jwt');
-let auth = jwt({secret: process.env.ARTICLE_BACKEND_SECRET, userProperty: 'payload'});
+let auth = jwt({secret: 'secret', userProperty: 'payload'});
 
 
 router.post('/register', function(req, res, next){
