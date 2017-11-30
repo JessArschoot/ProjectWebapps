@@ -16,6 +16,7 @@ export class AddArticleComponent implements OnInit {
   private _user: User;
   public article: FormGroup;
   public  nations: string[];
+  @Output() _nations = new EventEmitter<string>();
   @Output() event = new EventEmitter<Article>();
   @ViewChild('fileInput') fileInput;
   

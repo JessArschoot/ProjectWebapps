@@ -17,6 +17,7 @@ export class ArticleListComponent implements OnInit {
   private _articles: Article[];
   public user: string;
   public _user: User;
+  public _nations: string[];
 
     constructor(private fb: FormBuilder, private service: ArticleService, private userService: UserService) {
         let jsonUser = JSON.parse(localStorage.getItem('currentUser'))
@@ -33,6 +34,9 @@ export class ArticleListComponent implements OnInit {
     }
     addArticle(article: Article){
         this._articles.push(article);
+    }
+    setNations(nations: string[]){
+        this._nations = nations;
     }
     get articles() {
       return this._articles;
