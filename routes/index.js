@@ -26,7 +26,7 @@ router.get('/article/:id', auth, function(req, res, next) {
 });
 
 router.post('/article/add-like/:id',auth, function(req, res, next){
-  console.log(req.params.user);
+  console.log(req.body);
   Article.findOne({
     _id:req.params.id
   }).populate('User').exec( function(err, article){
@@ -45,7 +45,7 @@ router.post('/article/remove-like/:id', auth, function(req,res,next){
   }, function(err, article){
     if(err){return next(err);}
     article.likes.forEach(e => {
-      if(e.username == req.params.user){
+      if(e == req.params.user){
         pop(e);
       }
     });
