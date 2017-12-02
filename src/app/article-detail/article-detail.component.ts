@@ -57,7 +57,7 @@ export class ArticleDetailComponent implements OnInit {
     if(this._like == false)
     {
       this._article.likes++;
-      this.service.addLike(this.user, this._article._id);
+      this.service.addLike(this._article._id);
       this._like = true;
     }
     else{
