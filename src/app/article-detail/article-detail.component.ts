@@ -57,6 +57,14 @@ export class ArticleDetailComponent implements OnInit {
     return <FormArray>this.comment.get('text');
   }
   addLike(){
+    this._article.likes.forEach( function(item, index, object) {
+      if(item == this._user.username){
+        this._like == true;
+      }
+      else{
+        this._like == false;
+      }
+    });
     if(this._like == false)
     {
       var model = {
