@@ -26,12 +26,12 @@ router.get('/article/:id', auth, function(req, res, next) {
 });
 
 router.post('/article/add-like/:id',auth, function(req, res, next){
-  console.log(req.body.user);
+  console.log(req.params.user);
   Article.findOne({
     _id:req.params.id
   }).populate('User').exec( function(err, article){
     if(err) {return next(err);}
-    article.likes.push(req.body.user);
+    article.likes.push(req.params.user);
     article.save(function(err){
       if(err){return next(err);}
       res.json(article);
@@ -45,7 +45,7 @@ router.post('/article/remove-like/:id', auth, function(req,res,next){
   }, function(err, article){
     if(err){return next(err);}
     article.likes.forEach(e => {
-      if(e.username == req.body.user){
+      if(e.username == req.params.user){
         pop(e);
       }
     });
