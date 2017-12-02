@@ -18,7 +18,7 @@ export class ArticleListComponent implements OnInit {
   public user: string;
   public _user: User;
   public _nations: string[];
-
+ 
     constructor(private fb: FormBuilder, private service: ArticleService, private userService: UserService) {
         let jsonUser = JSON.parse(localStorage.getItem('currentUser'))
         this.user = jsonUser? jsonUser.username:null;
@@ -42,4 +42,5 @@ export class ArticleListComponent implements OnInit {
       return this._articles;
     }
     
+   
 }

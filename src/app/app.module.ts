@@ -7,6 +7,10 @@ import { FormsModule, FormControl, FormBuilder,ReactiveFormsModule } from '@angu
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { Pipe, PipeTransform } from '@angular/core'; 
+
+import { ArticleFilterPipe } from '../app/shared/article-filter-pipe';
+
 import { AppComponent } from './app.component';
 import { ArticleResolverService } from './services/article-resolver.service';
 import { ArticleService } from './services/article.service';
@@ -44,6 +48,7 @@ const appRoutes: Routes = [
     ArticleListComponent,
     AddArticleComponent,
     UserComponent,
+    ArticleFilterPipe
     //PageNotFoundComponent
   ],
   imports: [

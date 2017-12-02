@@ -7,8 +7,21 @@
             {{nation}}
     </div>
 </div>
+
+<form>
+    <div class="section" class="ui form"><label for="search">Zoek op categorie</label>
+        <div class="ui loading search">
+            <div class="ui icon input">
+                <input type="text" name="search" id="search" placeholder="search..." [(ngModel)]="filter.article">
+              <i class="search icon"></i>
+            </div>
+          </div>
+      
+      </div>
+  </form>
+
 <div class="ui grid">
-    <div *ngFor="let article of articles" class="four wide column">
+    <div *ngFor="let article of articles | articlefilter:filter" class="four wide column">
       <app-article  [article]="article">
       </app-article>
     </div>
