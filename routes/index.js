@@ -24,6 +24,20 @@ router.get('/article/:id', auth, function(req, res, next) {
     res.json(article);
   })
 });
+
+router.post('/article/add-like/:id', auth, function(req, res, next){
+  Article.findOne({
+    _id:req.params.id
+  }, function(err, article){
+    if(err) {return next(err);}
+    article.like = article.like + 1;
+    article.save(function(err){
+      if(err){handleError(res, err.message, "mislukt");}
+      res.json(article);
+    })
+  });
+
+});
 router.post('/article/add-article', auth, function(req, res, next){
   console.log(req.body.nation);
 

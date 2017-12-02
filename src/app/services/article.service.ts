@@ -29,4 +29,8 @@ export class ArticleService {
     return this.http.post("/article/add-article/",model,{ headers: new Headers({Authorization: `Bearer ${this.auth.token}`})}).map((response: Response) => response.json());
     
   }
+
+  addLike(user: string, id: string){
+    return this.http.post("/article/add-like/"+id,user,{ headers: new Headers({Authorization: `Bearer ${this.auth.token}`})} ).map((response: Response) => response.json());
+  }
 }
