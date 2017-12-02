@@ -26,6 +26,7 @@
                            </div>
                     </div>
                     <div *ngIf="_comment">
+                      <div class="ui comments">
                         <h3 class="ui dividing header">Comments</h3>
                         <div  *ngFor='let feed of _article.comments'>
 
@@ -45,7 +46,7 @@
                           </div>
                       </div>
                       </div>
-                    
+                    </div>
                       <form [formGroup]='comment' class="ui reply form">
                         <div class="field">
                           <textarea formControlName='text'></textarea>
