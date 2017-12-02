@@ -44,9 +44,9 @@ router.post('/article/remove-like/:id', auth, function(req,res,next){
     _id:req.params.id
   }, function(err, article){
     if(err){return next(err);}
-    article.likes.forEach(e => {
-      if(e == req.body.username){
-        pop(e);
+    article.likes.forEach(function(item, index, object) {
+      if(item == req.body.username){
+        object.splice(index, 1);
       }
     });
     article.save(function(err){
