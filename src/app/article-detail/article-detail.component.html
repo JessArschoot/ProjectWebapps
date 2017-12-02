@@ -31,7 +31,10 @@
                             <div class="comment">
                               <div class="content">
                                 <a class="author"><img class="ui avatar image" id ="userPic" src='data:image/jpg;base64,{{feed.userpic}}' >{{feed.username}} 
-                                  <sub>{{feed.date | date : 'dd/MM/yyyy'}}</sub>
+                                  <div class="metadata">
+                                      <span class="date">{{feed.date | date : 'dd/MM/yyyy'}}</span>
+                                    </div>
+                                
                                 </a>
                                 <div class="text">
                                   {{feed.text}}
