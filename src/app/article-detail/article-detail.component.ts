@@ -63,8 +63,10 @@ export class ArticleDetailComponent implements OnInit {
       });
     }
     else{
-      //this._article.likes--;
-      this._like = false;
+      this.service.removeLike(this._article._id, this._user).subscribe(data =>{
+        this._article.likes.pop();
+        this._like = false;
+      });
     }
    
     console.log(this._article.likes);
