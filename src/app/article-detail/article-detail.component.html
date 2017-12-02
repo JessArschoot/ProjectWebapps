@@ -26,23 +26,24 @@
                            </div>
                     </div>
                     <div *ngIf="_comment">
-                      <div class="comments">
+                        <h3 class="ui dividing header">Comments</h3>
                         <div  *ngFor='let feed of _article.comments'>
-                            <div class="comment">
-                              <div class="content">
-                                <a class="author"><img class="ui avatar image" id ="userPic" src='data:image/jpg;base64,{{feed.userpic}}' >{{feed.username}} 
-                                  <div class="metadata">
-                                      <span class="date">{{feed.date | date : 'dd/MM/yyyy'}}</span>
-                                    </div>
-                                
-                                </a>
-                                <div class="text">
-                                  {{feed.text}}
-                                </div>
-                                
-                              </div>
+
+                        
+                        <div class="comment">
+                          <a class="avatar">
+                            <img src=src='data:image/jpg;base64,{{feed.userpic}}'>
+                          </a>
+                          <div class="content">
+                            <a class="author">{{feed.username}}</a>
+                            <div class="metadata">
+                              <span class="date">{{feed.date | date : 'dd/MM/yyyy'}}</span>
+                            </div>
+                            <div class="text">
+                                {{feed.text}}
                             </div>
                           </div>
+                      </div>
                       </div>
                     
                       <form [formGroup]='comment' class="ui reply form">
