@@ -10,10 +10,10 @@ export class Article {
     text:string;
     
     picture:string;
-    likes: number;
+    likes: User[];
     comments:Comment[];
 
-    constructor(username: string, userpic:string,nation:string, date: Date, title: string, text: string, likes: number, comments: Comment[], picture:string){
+    constructor(username: string, userpic:string,nation:string, date: Date, title: string, text: string, likes: User[], comments: Comment[], picture:string){
         this.username = username;
         this.userpic = userpic;
         this.nation = nation;

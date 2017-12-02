@@ -10,7 +10,7 @@ var ArticleSchema = new mongoose.Schema({
     title: String,
     text: String,
     picture: String,
-    likes: Number,
+    likes: [{type:Schema.ObjectId, ref: "User"}],
     comments: [{type:Schema.ObjectId, ref:"Comment"}],
 });	
 module.exports = mongoose.model('Article', ArticleSchema);

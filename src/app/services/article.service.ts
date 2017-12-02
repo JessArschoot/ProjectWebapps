@@ -30,7 +30,7 @@ export class ArticleService {
     
   }
 
-  addLike(id: string){
-    return this.http.post("/article/add-like/"+id,{ headers: new Headers({Authorization: `Bearer ${this.auth.token}`})}).map((response: Response) => response.json());
+  addLike(id: string, user: any){
+    return this.http.post("/article/add-like/"+id,user,{ headers: new Headers({Authorization: `Bearer ${this.auth.token}`})}).map((response: Response) => response.json());
   }
 }
