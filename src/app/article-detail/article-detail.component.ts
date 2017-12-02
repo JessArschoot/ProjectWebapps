@@ -34,6 +34,16 @@ export class ArticleDetailComponent implements OnInit {
     this.userService.getUser(this.user).subscribe(data => {
                   this._user = new User(data.name, data.username, data.picture)
                 });
+    
+    this._article.likes.forEach(item =>{
+      console.log(item);
+      if(item == this._user.username){
+        this._like = true;
+      }
+      else{
+        this._like = false;
+      }
+    });
     this.route.paramMap.subscribe(pa =>
       this.service.getArticle(pa.get('id'))
         .subscribe(item => {
@@ -57,15 +67,6 @@ export class ArticleDetailComponent implements OnInit {
     return <FormArray>this.comment.get('text');
   }
   addLike(){
-    this._article.likes.forEach(item =>{
-      console.log(item);
-      if(item == this._user.username){
-        this._like = true;
-      }
-      else{
-        this._like = false;
-      }
-    });
     if(this._like == false)
     {
       var model = {

@@ -18,7 +18,7 @@
                   <div class="extra content">
                         <div class="meta">
                              <a class="like" (click)="addLike()">
-                               <div *ngIf='_like'><i class="like icon"></i></div> {{_article.likes.length}} Likes
+                               <i class="like icon" *ngIf='_like'></i> {{_article.likes.length}} Likes
                              </a>
                              <a class="comment" (click)="makeComment()">
                                  <i class="comment icon"></i>{{_article.comments.length}} Comments
