@@ -29,7 +29,7 @@ router.post('/article/add-like/:id',auth, function(req, res, next){
   console.log(req.params.id);
   Article.findOne({
     _id:req.params.id
-  }, function(err, article){
+  }).populate('likes').exec( function(err, article){
     if(err) {return next(err);}
     article.likes.push(req.body.user);
     article.save(function(err){
