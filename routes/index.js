@@ -25,18 +25,18 @@ router.get('/article/:id', auth, function(req, res, next) {
   })
 });
 
-router.post('/article/add-like/:id', auth, function(req, res, next){
+router.post('/article/add-like/:id', function(req, res, next){
   console.log(req.params.id);
-  Article.findOne({
+ var article = Article.findOne({
     _id:req.params.id
   }, function(err, article){
     if(err) {return next(err);}
-    article.likes = article.likes + 1;
-    article.save(function(err){
-      if(err){handleError(res, err.message, "mislukt");}
-      res.json(article);
-    });
+  })
+  article.likes = article.likes + 1;
+  article.save(function(err){
+    if(err){handleError(res, err.message, "mislukt");}
   });
+  res.json(article);
 });
 router.post('/article/add-article', auth, function(req, res, next){
   console.log(req.body.nation);
