@@ -60,10 +60,10 @@ export class ArticleDetailComponent implements OnInit {
     this._article.likes.forEach(item =>{
       console.log(item);
       if(item == this._user.username){
-        this._like == true;
+        this._like = true;
       }
       else{
-        this._like == false;
+        this._like = false;
       }
     });
     if(this._like == false)
