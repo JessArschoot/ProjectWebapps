@@ -29,7 +29,7 @@ router.post('/article/add-like/:id',auth, function(req, res, next){
   console.log(req.body.user);
   Article.findOne({
     _id:req.params.id
-  }).populate('likes').exec( function(err, article){
+  }).populate('User').exec( function(err, article){
     if(err) {return next(err);}
     article.likes.push(req.body.user);
     article.save(function(err){
@@ -45,7 +45,7 @@ router.post('/article/remove-like/:id', auth, function(req,res,next){
   }, function(err, article){
     if(err){return next(err);}
     article.likes.forEach(e => {
-      if(e.username == req.body.user.username){
+      if(e.username == req.body.user){
         pop(e);
       }
     });

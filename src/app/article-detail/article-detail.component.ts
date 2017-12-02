@@ -60,13 +60,13 @@ export class ArticleDetailComponent implements OnInit {
     if(this._like == false)
     {
      
-      this.service.addLike(this._article._id, this._user).subscribe(data =>{
+      this.service.addLike(this._article._id, this._user.username).subscribe(data =>{
         this._article.likes.push(data.user);
         this._like = true;
       });
     }
     else{
-      this.service.removeLike(this._article._id, this._user).subscribe(data =>{
+      this.service.removeLike(this._article._id, this._user.username).subscribe(data =>{
         this._article.likes.pop();
         this._like = false;
       });
