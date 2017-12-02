@@ -58,7 +58,7 @@ export class ArticleDetailComponent implements OnInit {
     {
      
       this.service.addLike(this._article._id).subscribe(data =>{
-        this._article.likes = data;
+        this._article.likes++;
         this._like = true;
       });
     }
