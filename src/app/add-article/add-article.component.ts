@@ -16,6 +16,7 @@ export class AddArticleComponent implements OnInit {
   private _user: User;
   public article: FormGroup;
   public  nations: string[];
+  public addA: Boolean= false;
   @Output() _nations = new EventEmitter<string>();
   @Output() event = new EventEmitter<Article>();
   @ViewChild('fileInput') fileInput;
@@ -39,6 +40,15 @@ export class AddArticleComponent implements OnInit {
               });
   }
 
+  add(){
+    if(this.addA)
+    {
+      this.addA = false
+    }
+    else{
+      this.addA = true;
+    }
+  }
   addArticle(){
     console.log(this.article.value.nation);
     let fileBrowser = this.fileInput.nativeElement;

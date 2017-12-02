@@ -1,6 +1,6 @@
-<div class='add'>
+<div class='add' *ngIf="addA">
     <form [formGroup]='article' class="ui reply form" (ngSubmit)="addArticle()">
-      <h2>Voeg artikel toe</h2>
+      <h2 (click)='add()'>Voeg artikel toe <i class="plus icon" ></i></h2>
       <div class="field">
         <label>Title
         <input type="text" value="title" formControlName="title"/>
