@@ -26,7 +26,7 @@ router.get('/article/:id', auth, function(req, res, next) {
 });
 
 router.post('/article/add-like/:id',auth, function(req, res, next){
-  console.log(req.params.id);
+  console.log(req.body.user);
   Article.findOne({
     _id:req.params.id
   }).populate('likes').exec( function(err, article){
