@@ -33,7 +33,7 @@ router.post('/article/add-like/:id',auth, function(req, res, next){
     if(err) {return next(err);}
     article.likes.push(req.body.user);
     article.save(function(err){
-      if(err){handleError(res, err.message, "mislukt");}
+      if(err){return next(err);}
       res.json(article);
     });
   });
