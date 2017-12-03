@@ -18,6 +18,7 @@ export class ArticleComponent implements OnInit {
   _like: Boolean= false;
   constructor(private service: ArticleService, private userService: UserService) {
     this.user = JSON.parse(localStorage.getItem('currentUser')).username;
+    console.log(this.user);
    }
 
   ngOnInit() {
@@ -40,11 +41,6 @@ export class ArticleComponent implements OnInit {
         this._like = false;
       }
       });
-      
     }
-    
-    
-    
   }
-
 }
