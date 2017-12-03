@@ -21,9 +21,10 @@ export class ArticleComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.userService.getUser(this.user).subscribe(data => {
-      this._user = new User(data.name, data.username, data.picture);
-      if(this._user != null){
+    if(this.user != null){
+      this.userService.getUser(this.user).subscribe(data => {
+        this._user = new User(data.name, data.username, data.picture)
+        if(this._user != null){
         this.article.likes.forEach(item =>{
           console.log(this.user);
           console.log(item);
@@ -38,7 +39,9 @@ export class ArticleComponent implements OnInit {
       else{
         this._like = false;
       }
-    });
+      });
+      
+    }
     
     
     
