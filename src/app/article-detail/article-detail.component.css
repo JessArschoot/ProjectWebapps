@@ -1,0 +1,9 @@
+.ui.comments {
+    
+    width: 100%; 
+}
+
+.ui.items:last-child {
+    background-color: white;
+    padding: 2%;
+}
