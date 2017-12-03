@@ -14,12 +14,14 @@ declare var $: any;
 export class ArticleComponent implements OnInit {
   @Input() public article: Article
   _user: User;
-  _like: Boolean;
+  user: string;
+  _like: Boolean= false;
   constructor(private service: ArticleService, private userService: UserService) {
+    this.user = JSON.parse(localStorage.getItem('currentUser')).username;
    }
 
   ngOnInit() {
-    this.userService.getUser(JSON.parse(localStorage.getItem('currentUser')).username).subscribe(data => {
+    this.userService.getUser(this.user).subscribe(data => {
       this._user = new User(data.name, data.username, data.picture)
     });
     this.article.likes.forEach(item =>{
