@@ -17,11 +17,15 @@ export class ArticleComponent implements OnInit {
   user: string;
   _like: Boolean= false;
   constructor(private service: ArticleService, private userService: UserService) {
-    this.user = JSON.parse(localStorage.getItem('currentUser')).username;
+    if(JSON.parse(localStorage.getItem('currentUser')))
+    {
+      this.user = JSON.parse(localStorage.getItem('currentUser')).username;
+    }
+    else{this.user = null;}
    }
 
   ngOnInit() {
-    if(this.user){
+    if(this.user != null){
       console.log('hij is hier');
       this.userService.getUser(this.user).subscribe(data => {
         this._user = new User(data.name, data.username, data.picture)
