@@ -21,13 +21,12 @@ export class ArticleComponent implements OnInit {
    }
 
   ngOnInit() {
-    if(!this.user){
+    if(this.user){
+      console.log('hij is hier');
       this.userService.getUser(this.user).subscribe(data => {
         this._user = new User(data.name, data.username, data.picture)
         if(this._user != null){
         this.article.likes.forEach(item =>{
-          console.log(this.user);
-          console.log(item);
           if(item == this._user.username){
             this._like = true;
           }
