@@ -25,6 +25,7 @@ export class ArticleComponent implements OnInit {
       this._user = new User(data.name, data.username, data.picture)
     });
     this.article.likes.forEach(item =>{
+      console.log(this.user);
       console.log(item);
       if(item == this._user.username){
         this._like = true;
