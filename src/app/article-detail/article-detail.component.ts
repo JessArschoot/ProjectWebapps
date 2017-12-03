@@ -16,7 +16,6 @@ import { UserService } from '../services/user.service';
 export class ArticleDetailComponent implements OnInit {
   public _article: Article;
   private comment: FormGroup;
-  private _comment: Boolean = false;
   private _like: Boolean = false;
   private _user: User;
   private user: string;
@@ -50,6 +49,10 @@ export class ArticleDetailComponent implements OnInit {
           });
         })
     );
+    this.userService.getUser(this.user).subscribe(data =>{
+      this._user = data;
+      console.log(data);
+    });
     this.comment = this.fb.group({
       text: ['', [Validators.required, Validators.minLength(2)]],
       
@@ -87,32 +90,6 @@ export class ArticleDetailComponent implements OnInit {
     }
    
     console.log(this._article.likes);
-  }
-  makeComment(){
-    if(this._comment == false)
-    {
-      this._comment = true;
-      
-        this.userService.getUser(this.user).subscribe(data =>{
-          this._user = data;
-          console.log(data);
-          //var preview = document.getElementById('userPic');
-          //console.log(preview);
-         // var reader  = new FileReader();
-          
-          //reader.addEventListener("loadend", function () {
-          //  preview.setAttribute('src', 'data: image/jpg;base64,'+data.picture);
-            
-          //}, true);
-      
-        });
-       
-      
-    }
-    else{
-      this._comment = false;
-    }
-    
   }
   addComment(){
     var model = {
