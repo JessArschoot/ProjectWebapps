@@ -22,23 +22,25 @@ export class ArticleComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUser(this.user).subscribe(data => {
-      this._user = new User(data.name, data.username, data.picture)
+      this._user = new User(data.name, data.username, data.picture);
+      if(this._user != null){
+        this.article.likes.forEach(item =>{
+          console.log(this.user);
+          console.log(item);
+          if(item == this._user.username){
+            this._like = true;
+          }
+          else{
+            this._like = false;
+          }
+        });
+      }
+      else{
+        this._like = false;
+      }
     });
-    if(this._user != null){
-      this.article.likes.forEach(item =>{
-        console.log(this.user);
-        console.log(item);
-        if(item == this._user.username){
-          this._like = true;
-        }
-        else{
-          this._like = false;
-        }
-      });
-    }
-    else{
-      this._like = false;
-    }
+    
+    
     
   }
 
