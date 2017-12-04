@@ -15,10 +15,10 @@
       </div>
   </form>
 
-<div class="ui grid">
+<div class="ui centered grid">
 
             <div *ngFor="let article of articles | articlefilter:filter" class="sixteen wide mobile eight wide tablet four wide computer column
-            centered" >
+            centered row" >
                     <app-article  [article]="article"> 
                     </app-article>
             </div>
