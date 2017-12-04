@@ -17,7 +17,7 @@
 
 <div class="ui grid">
     <div class="four column large screen only row">
-            <div *ngFor="let article of articles | articlefilter:filter"  >
+            <div *ngFor="let article of articles | articlefilter:filter" class="column" >
                     <app-article  [article]="article"> 
                     </app-article>
             </div>
