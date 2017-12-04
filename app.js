@@ -48,7 +48,7 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use('/', index);
+app.use('/API', index);
 app.use('/API/users', users);
 app.use(express.static(path.join(__dirname, 'dist')));
 

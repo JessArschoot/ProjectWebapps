@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class AuthenticationService {
-  private _url = 'API/users';
+  private _url = '/API/users';
   private _user$: BehaviorSubject<string>;
 
   public redirectUrl: string;
