@@ -17,7 +17,7 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 
 require('./config/passport');
-mongoose.connect('mongodb://jessarschoot:hfqens5@ds121726.mlab.com:21726/projectwebapps2017', {  useMongoClient: true });
+mongoose.connect(process.env.DATABASE, {  useMongoClient: true });
 
 
 

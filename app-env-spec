@@ -1,0 +1,2 @@
+export ARTICLE_BACKEND_SECRET="THISISASECRET"
+export DATABASE="mongodb://localhost:27017/webappsTestdb"
