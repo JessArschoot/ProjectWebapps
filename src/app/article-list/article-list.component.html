@@ -16,16 +16,10 @@
   </form>
 
 <div class="ui grid">
-    <div *ngFor="let article of articles | articlefilter:filter" class="four wide large screen tablet only column">
-      <app-article  [article]="article">
+    <div *ngFor="let article of articles | articlefilter:filter" class="four wide large screen only column" class="two wide tablet only column" class=" wide mobile only column">
+      <app-article  [article]="article"> 
       </app-article>
     </div>
-    <div *ngFor="let article of articles | articlefilter:filter" class=" wide mobile only column">
-        <app-article  [article]="article">
-        </app-article>
-      </div>
-
-
 </div>
 
 
