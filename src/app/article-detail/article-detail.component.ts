@@ -31,8 +31,7 @@ export class ArticleDetailComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUser(this.user).subscribe(data => {
-                  this._user = new User(data.name, data.username, data.picture)
-                
+                  this._user = new User(data.name, data.username, data.picture)   
     this.route.paramMap.subscribe(pa =>
       this.service.getArticle(pa.get('id'))
         .subscribe(item => {
@@ -50,19 +49,10 @@ export class ArticleDetailComponent implements OnInit {
         })
     );
   });
-    this.userService.getUser(this.user).subscribe(data =>{
-      this._user = data;
-      console.log(data);
-    });
     this.comment = this.fb.group({
       text: ['', [Validators.required, Validators.minLength(2)]],
       
     });
-
-  
-  
-    
-
    // console.log(this._article.comments.length);
   }
 
