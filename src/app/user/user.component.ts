@@ -15,20 +15,15 @@ export class UserComponent implements OnInit {
   private _user: string;
   public articles: Article[];
 
-  constructor(private service: UserService, private articleService: ArticleService) {
-      //this._user = JSON.parse(localStorage.getItem('currentuser')).username;
+  constructor(private service: UserService) {
+      this._user = JSON.parse(localStorage.getItem('currentUser')).username;
    }
 
   ngOnInit() {
     this.service.getUser(this._user)
     .subscribe(data =>  this.user = new User(data.name, data.username, data.picture));
 
-    console.log(this.user);
-    this.articleService.articles.subscribe(data => data.forEach(d => {
-      if(d.username == this.user.username){
-        this.articles.push(d);
-      }
-    }));
+    this.service.getFavorites(this._user).subscribe(data => this.articles = data);
   }
 
 }

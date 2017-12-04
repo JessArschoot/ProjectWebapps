@@ -32,7 +32,7 @@ export class ArticleDetailComponent implements OnInit {
   ngOnInit() {
     this.userService.getUser(this.user).subscribe(data => {
                   this._user = new User(data.name, data.username, data.picture)
-                });
+                
     this.route.paramMap.subscribe(pa =>
       this.service.getArticle(pa.get('id'))
         .subscribe(item => {
@@ -49,6 +49,7 @@ export class ArticleDetailComponent implements OnInit {
           });
         })
     );
+  });
     this.userService.getUser(this.user).subscribe(data =>{
       this._user = data;
       console.log(data);

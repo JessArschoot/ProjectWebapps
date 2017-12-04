@@ -3,9 +3,9 @@ var router = express.Router();
 let mongoose = require('mongoose');
 let passport = require('passport');
 let User = mongoose.model('User');
-//process.env.ARTICLE_BACKEND_SECRET
+let Article = mongoose.model('Article');
 let jwt = require('express-jwt');
-let auth = jwt({secret: 'secret', userProperty: 'payload'});
+let auth = jwt({secret: process.env.ARTICLE_BACKEND_SECRET, userProperty: 'payload'});
 
 
 router.post('/register', function(req, res, next){
@@ -55,7 +55,7 @@ router.post('/checkusername', function(req, res, next) {
   // }
 });
 
-router.get('/user/:name', function(req, res, next){
+router.get('/user/:name',auth, function(req, res, next){
   console.log(req.params.name);
   User.findOne({
     username: req.params.name
@@ -63,6 +63,25 @@ router.get('/user/:name', function(req, res, next){
     if(err) { console.log(err.message)}
     if(!result){ console.log('geen user')}
     res.json(result);
+   
+  })
+});
+
+router.get('/articles/:name', function(req, res, next){
+  console.log(req.params.name);
+  Article.find({}, function(err, articles){
+    var arts = [];
+    if(err) { console.log(err.message)}
+    if(!articles){ console.log('geen articles')}
+    console.log(articles);
+    articles.forEach(e => 
+      e.likes.forEach(a => {
+        if(a == req.params.name){
+          arts.push(e);
+        }
+      }));
+    
+    res.json(arts);
    
   })
 });

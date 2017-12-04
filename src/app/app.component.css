@@ -1,3 +1,4 @@
+
 body{
     width:100%;
     height:100%;
@@ -20,11 +21,10 @@ body{
 nav{
     display:inline;
     float:right;
-    width:30%;
+    margin-right:10%;
 }
 nav a{
-    width:10%;
-    margin-left:3%;
+    width:100%;
     color:white;
 }
 nav a:hover{

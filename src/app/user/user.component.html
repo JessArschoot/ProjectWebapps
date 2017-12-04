@@ -1,5 +1,9 @@
 <div *ngIf='articles'>
-<div *ngFor='let article of articles'>
-    {{article._id}}
-</div>
+    <h2>Mijn favoriete artikelen</h2>
+    <div class="ui grid">
+        <div *ngFor='let article of articles' class="sixteen wide mobile eight wide tablet four wide computer column">
+            <app-article [article]="article">
+            </app-article>
+        </div>
+    </div>
 </div>
