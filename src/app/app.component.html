@@ -1,20 +1,22 @@
 <div class="ui header customheader">
     <div class="logo">WanderFull</div>
    <nav>
-  <div class="ui dropdown">
+ <!-- <div class="ui dropdown">
       <div class="text">
        tralalal</div>
         <i class="dropdown icon"></i>
         <div class="menu">
-          <a class='item' routerLinkActive='active' routerLink="article/list" >Articles</a>
+          
+        </div>
+    </div>-->
+    
+
+    <a class='item' routerLinkActive='active' routerLink="article/list" >Articles</a>
     <a *ngIf='(currentUser | async) else loginlink' class="item" routerLinkActive='active' routerLink="/user">{{currentUser|async}} </a>
     <ng-template #loginlink>
       <a class="item" routerLinkActive='active' routerLink="/login">log in</a>
     </ng-template>
     <a class='item' *ngIf='user' routerLinkActive='active' routerLink="/logout" >Log out</a>
-        </div>
-    </div>
-    
     </nav>
     
 
