@@ -53,7 +53,27 @@ describe("like article", ()=> {
     it('Like succeeded', () => {
         expect(data.status).toBe(200);
     });
+})
 
+describe("like is added", () => {
+    let data = {};
+
+    beforeAll((done) => {
+    
+            Request({
+                method: 'GET',
+                uri: 'http://localhost:3000/API//article/5a22ac82780fe3001438cdb4',
+                json: true,
+            }, (error, response, body) => {
+                data.body = body;
+                done();
+            }).auth(null, null, true, token);
+        })
+
+    it('like added', () => {
+        expect(data.body.likes.length).toBe(1);
+    });
+        
 })
 
 describe("unlike article", ()=> {
@@ -78,4 +98,24 @@ describe("unlike article", ()=> {
         expect(data.status).toBe(200);
     });
 
+})
+describe("like is removed", () => {
+    let data = {};
+
+    beforeAll((done) => {
+    
+            Request({
+                method: 'GET',
+                uri: 'http://localhost:3000/API//article/5a22ac82780fe3001438cdb4',
+                json: true,
+            }, (error, response, body) => {
+                data.body = body;
+                done();
+            }).auth(null, null, true, token);
+        })
+
+    it('like removed', () => {
+        expect(data.body.likes.length).toBe(0);
+    });
+        
 })
