@@ -29,7 +29,7 @@
         <h3 class="ui dividing header">Comments</h3>
         <div *ngFor='let feed of _article.comments'>
 
-
+          <div class="commentLayout">
           <div class="comment">
             <a class="avatar">
               <img src='data:image/jpg;base64,{{feed.userpic}}'>
@@ -44,7 +44,7 @@
               </div>
             </div>
           </div>
-        
+        </div>
         </div>
       </div>
       <form [formGroup]='comment' (ngSubmit)="addComment()" class="ui reply form">
