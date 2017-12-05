@@ -7,3 +7,8 @@
     background-color: white;
     padding: 2%;
 }
+
+.comment{
+    padding-bottom: .21428571rem;
+    border-bottom: 1px solid rgba(34,36,38,.15);
+}
