@@ -35,7 +35,8 @@ export class AddArticleComponent implements OnInit {
 
     this.article = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(2)]],
-      text: ['', [Validators.required, Validators.minLength(20)]],
+      text: ['', [Validators.required, Validators.minLength(5)]],
+      picture:['', [Validators.required]],
       nation: ['Frankrijk', [Validators.required]]
     });
   }
