@@ -1,4 +1,4 @@
-<h2 (click)='add()'>Voeg artikel toe <i class="loading plus icon" ></i></h2>
+<h2 class="loading" (click)='add()'>Voeg artikel toe <i class="plus icon" ></i></h2>
 <div class='add' *ngIf="addA">
     <form [formGroup]='article' class="ui reply form" (ngSubmit)="addArticle()">
       <div class="field">
