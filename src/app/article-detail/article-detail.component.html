@@ -46,7 +46,7 @@
           </div>
         </div>
       </div>
-      <form [formGroup]='comment' class="ui reply form">
+      <form [formGroup]='comment' (ngSubmit)="addComment()" class="ui reply form">
         <div class="field">
           <textarea formControlName='text'></textarea>
         </div>
@@ -57,9 +57,7 @@
           </div>
         </div>
         <br>
-        <div class="ui blue labeled submit icon button" (click)="addComment()" [disabled] = '!comment.valid'>
-          <i class="icon edit"></i> Add Reply
-        </div>
+        <input class="ui primary button " type="submit"  [disabled] = '!comment.valid' value="Toevoegen"/>
 
 
       </form>
