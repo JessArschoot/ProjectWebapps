@@ -33,7 +33,6 @@ export class ArticleComponent implements OnInit {
         if(this._user != null){
         this.article.likes.forEach(item =>{
           if(item == this._user.username){
-            console.log("ik ben hier, ik moet geliked zijn");
             this._like = true;
           }
           else{
