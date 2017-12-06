@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    this.authService.login(this.user.value.username.tolowercase(), this.user.value.password).subscribe(val => {
+    this.authService.login(this.user.value.username.toLowerCase(), this.user.value.password).subscribe(val => {
       if (val) {
         console.log(val);
         if (this.authService.redirectUrl) {

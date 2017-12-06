@@ -48,7 +48,7 @@ export class RegisterComponent implements OnInit {
 
   serverSideValidateUsername(): ValidatorFn {
     return (control: AbstractControl): Observable<{ [key: string]: any }> => {
-      return this.authenticationService.checkUserNameAvailability(control.value.tolowercase()).map(available => {
+      return this.authenticationService.checkUserNameAvailability(control.value.toLowerCase()).map(available => {
         if (available) {
           return null;
         }
@@ -83,7 +83,7 @@ export class RegisterComponent implements OnInit {
       r.readAsDataURL(f);
       r.onload= (e) => {
       data = r.result.split(',')[1];
-      this.authenticationService.register(this.user.value.username.tolowercase(), this.passwordControl.value, this.user.value.name, data).subscribe(val => {
+      this.authenticationService.register(this.user.value.username.toLowerCase(), this.passwordControl.value, this.user.value.name, data).subscribe(val => {
         if (val) {
           this.router.navigate(['article/list']);
         }
