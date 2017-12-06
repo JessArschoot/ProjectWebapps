@@ -32,7 +32,7 @@ const appRoutes: Routes = [
    { path: "login", component: LoginComponent},
    { path: "register", component: RegisterComponent},
    { path: "user", component: UserComponent, canActivate: [ AuthGuardService ]},
-   { path: "logout", component: LogoutComponent,canActivate: [ AuthGuardService ], redirectTo:'article/list'},
+   { path: "logout", component: LogoutComponent,canActivate: [ AuthGuardService ]},
    { path: "**", redirectTo:'article/list' }
  
  ];
