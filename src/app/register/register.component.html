@@ -1,5 +1,5 @@
 <form [formGroup]='user' (ngSubmit)='onSubmit()' class="ui large form segment register">
-  <h3 class="ui header">registeer nieuwe gebruiker</h3>
+  <h3 class="ui header">registreer nieuwe gebruiker</h3>
   <div class="field">
     <label for="username">gebruikersnaam:</label>
     <input type="text" id="username" formControlName='username'>
@@ -16,7 +16,7 @@
   <div class="field">
     <input name="picture" id='picture' type="file" #fileInput (change)='previewFile()'>
     <br>
-    <img id="previewPic" height="200">
+    <img *ngIf="picture" id="previewPic" height="200">
     
   </div>
   

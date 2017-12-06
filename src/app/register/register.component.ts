@@ -27,6 +27,7 @@ export class RegisterComponent implements OnInit {
   
   @ViewChild('fileInput') fileInput;
   public user: FormGroup;
+  public _picture: Boolean = false;
   
   get passwordControl(): FormControl {
     return <FormControl>this.user.get('passwordGroup').get('password');
@@ -57,6 +58,7 @@ export class RegisterComponent implements OnInit {
   }
 
    previewFile() {
+    this._picture = true;
     var preview = document.getElementById('previewPic');
     var file    = this.fileInput.nativeElement.files[0];
     var reader  = new FileReader();
