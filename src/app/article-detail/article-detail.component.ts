@@ -38,7 +38,6 @@ export class ArticleDetailComponent implements OnInit {
         .subscribe(item => {
           this._article = item;
           console.log(this._article);
-          this.userService.getUser(this._article.username).subscribe(data=> this._userArticle = new User(data.name, data.username, data.picture));
           this._article.likes.forEach(item =>{
             console.log(item);
             if(item == this._user.username){

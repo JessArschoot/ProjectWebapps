@@ -56,8 +56,6 @@ router.post('/checkusername', function(req, res, next) {
 });
 
 router.get('/user/:name', function(req, res, next){
-  console.log(req.params.name);
-  console.log('tralalala');
   User.findOne({
     username: req.params.name
   }, function(err, result){
@@ -70,7 +68,7 @@ router.get('/user/:name', function(req, res, next){
 
 router.get('/articles/:name', function(req, res, next){
   console.log(req.params.name);
-  Article.find({}, function(err, articles){
+  Article.find({}).populate("user").exec( function(err, articles){
     var arts = [];
     if(err) { console.log(err.message)}
     if(!articles){ console.log('geen articles')}

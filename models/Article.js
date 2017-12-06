@@ -3,8 +3,7 @@ var User = require('./User');
 var Comment = require('./Comment');
 var Schema = mongoose.Schema;
 var ArticleSchema = new mongoose.Schema({
-    username: String,
-    userpic: String,
+    user: {type:Schema.ObjectId, ref:"User"},
     nation: String,
     date: Date,
     title: String,

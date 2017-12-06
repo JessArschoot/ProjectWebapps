@@ -2,7 +2,7 @@ import {Comment} from './Comment';
 import { User } from './User';
 export class Article {
     _id: string;
-    username:string
+    user:User
     nation: string
     date: Date;
     title:string;
@@ -11,8 +11,8 @@ export class Article {
     likes: string[];
     comments:Comment[];
 
-    constructor(username: string,nation:string, date: Date, title: string, text: string, likes: string[], comments: Comment[], picture:string){
-        this.username = username;
+    constructor(user: User,nation:string, date: Date, title: string, text: string, likes: string[], comments: Comment[], picture:string){
+        this.user = user;
         this.nation = nation;
         this.date = date;
         this.title = title;
