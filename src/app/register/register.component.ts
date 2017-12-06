@@ -73,6 +73,7 @@ export class RegisterComponent implements OnInit {
     }
   }
   onSubmit() {
+    console.log(this.fileInput.nativeElement.files);
     let fileBrowser = this.fileInput.nativeElement;
     let data;
   
