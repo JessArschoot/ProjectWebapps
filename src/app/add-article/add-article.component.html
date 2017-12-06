@@ -1,5 +1,5 @@
 <h2 (click)='add()'>Voeg post toe <i class="plus icon" ></i></h2>
-<div class='add' *ngIf="addA">
+<div *ngIf="addA">
     <form [formGroup]='article' class="ui reply form" (ngSubmit)="addArticle()">
       <div class="field">
         <label>Title
