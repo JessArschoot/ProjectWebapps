@@ -26,6 +26,7 @@ export class ArticleComponent implements OnInit {
    }
 
   ngOnInit() {
+    console.log(this.article.user.picture);
     if(this.user != null){
       this.userService.getUser(this.user).subscribe(data => {
         this._user = new User(data.name, data.username, data.picture)

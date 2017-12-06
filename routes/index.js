@@ -11,7 +11,6 @@ let auth = jwt({secret:process.env.ARTICLE_BACKEND_SECRET, userProperty: 'payloa
 /* GET home page. */
 router.get('/articles', function(req, res, next) {
   Article.find({}).populate('user').exec( function(err, articles){
-    console.log(articles);
     if (err) { return next(err); }
     res.json(articles);
   })
