@@ -65,7 +65,7 @@ export class AddArticleComponent implements OnInit {
           title: this.article.value.title,
           text: this.article.value.text,
           picture: data,
-          likes: 0,
+          likes: []
   
         }
         this.service.addArticle(model).subscribe(data => {
