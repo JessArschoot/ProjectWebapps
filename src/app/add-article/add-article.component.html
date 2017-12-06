@@ -6,7 +6,7 @@
         <input type="text" value="title" formControlName="title"/>
         </label>
       </div>
-      <div class='ui pointing red basic label' *ngIf=' article.get("title").errors?.required && article.get("username").touched'>
+      <div class='ui pointing red basic label' *ngIf=' article.get("title").errors?.required && article.get("title").touched'>
         Verplicht toe te voegen!
        </div>
        <div class='ui pointing red basic label' *ngIf=' article.get("title").errors?.minlength && article.get("title").touched'>
