@@ -51,11 +51,11 @@
         <div class="field">
           <textarea formControlName='text'></textarea>
         </div>
-        <div class='ui pointing red basic label' *ngIf=' article.get("text").errors?.required && article.get("text").touched'>
+        <div class='ui pointing red basic label' *ngIf=' comment.get("text").errors?.required && comment.get("text").touched'>
           Dit veld is verplicht!
          </div>
-        <div class='ui pointing red basic label' *ngIf=' article.get("text").errors?.minlength && article.get("text").touched'>
-          Inhoud is te kort! Het moet {{article.get("text").errors?.minlength.requiredLength }} karakters bevatten!
+        <div class='ui pointing red basic label' *ngIf=' comment.get("text").errors?.minlength && comment.get("text").touched'>
+          Inhoud is te kort! Het moet {{comment.get("text").errors?.minlength.requiredLength }} karakters bevatten!
          </div>
         <div *ngIf="_user">
           <div class="metadata">
