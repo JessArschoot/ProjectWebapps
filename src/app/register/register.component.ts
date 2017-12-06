@@ -42,6 +42,7 @@ export class RegisterComponent implements OnInit {
         confirmPassword: ['', Validators.required]
       }, { validator: comparePasswords }),
       name: ['',Validators.required],
+      picture: null,
     });
   }
 
@@ -57,10 +58,17 @@ export class RegisterComponent implements OnInit {
   }
 
    previewFile() {
+   
     var preview = document.getElementById('previewPic');
     var file    = this.fileInput.nativeElement.files[0];
     var reader  = new FileReader();
+    this.user.get('picture').setValue({
+      filename: file.name,
+      filetype: file.type,
+      value: reader.result.split(',')[1]
+    });
     reader.addEventListener("loadend", function () {
+      
       preview.setAttribute('src', reader.result);
       
     }, true);
