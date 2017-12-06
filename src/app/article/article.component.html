@@ -16,7 +16,7 @@
             <a class="like " (click)="addLike()">
               <i  [ngClass]="_like?'red heart icon':'empty heart icon'" ></i> {{article.likes.length}} Likes
             </a>
-            <a class="comment" >
+            <a class="comment" [routerLink]="[article._id]">
                 <i class="comment icon"></i>{{article.comments.length}} Comments
               </a>
           </div>
