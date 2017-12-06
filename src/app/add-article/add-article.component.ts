@@ -3,7 +3,7 @@ import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/cor
 import { ArticleService } from '../services/article.service';
 import { UserService } from '../services/user.service';
 import { User } from '../models/User';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators, FormControl  } from '@angular/forms';
 import { Article } from '../models/Article';
 
 @Component({
