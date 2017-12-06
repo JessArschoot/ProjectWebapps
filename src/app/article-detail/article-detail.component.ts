@@ -37,9 +37,9 @@ export class ArticleDetailComponent implements OnInit {
       this.service.getArticle(pa.get('id'))
         .subscribe(item => {
           this._article = item;
-          console.log(this._article);
+          
           this._article.likes.forEach(item =>{
-            console.log(item);
+            
             if(item == this._user.username){
               this._like = true;
             }
@@ -66,10 +66,7 @@ export class ArticleDetailComponent implements OnInit {
       var model = {
         username: this._user.username,
       }
-      this.service.addLike(this._article._id, model).subscribe(data =>{
-        //this._article.likes.push(data.user);
-        console.log(data);
-      });
+      this.service.addLike(this._article._id, model).subscribe();
       this._like = true;
       this._article.likes.push(this._user.username);
     }
@@ -77,14 +74,12 @@ export class ArticleDetailComponent implements OnInit {
       var model = {
         username: this._user.username,
       }
-      this.service.removeLike(this._article._id, model).subscribe(data =>{
-        console.log(data);
-      });
+      this.service.removeLike(this._article._id, model).subscribe();
       this._like = false;
       this._article.likes.pop();
     }
    
-    console.log(this._article.likes);
+  
   }
   addComment(){
     var model = {
@@ -95,7 +90,6 @@ export class ArticleDetailComponent implements OnInit {
     }
     this.service.addComment(this._article._id, model).subscribe(data => console.log(data));
     this._article.comments.push(new Comment(model.name,model.userpic, model.date, model.text));
-    console.log(this._article.comments);
     this.comment.reset();
   }
 

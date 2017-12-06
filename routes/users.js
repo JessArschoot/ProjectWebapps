@@ -9,7 +9,6 @@ let auth = jwt({secret: process.env.ARTICLE_BACKEND_SECRET, userProperty: 'paylo
 
 
 router.post('/register', function(req, res, next){
-  console.log(req.body);
   if(!req.body.username || !req.body.password || !req.body.name){
     return res.status(400).json({message: 'Please fill out all fields'});
   }
@@ -20,7 +19,6 @@ router.post('/register', function(req, res, next){
   user.name = req.body.name;
   user.picture = req.body.picture;
   
-  console.log(user);
   user.setPassword(req.body.password);
   
   user.save(function (err){
@@ -67,12 +65,11 @@ router.get('/user/:name', function(req, res, next){
 });
 
 router.get('/articles/:name', function(req, res, next){
-  console.log(req.params.name);
+  
   Article.find({}).populate("user").exec( function(err, articles){
     var arts = [];
     if(err) { console.log(err.message)}
     if(!articles){ console.log('geen articles')}
-    console.log(articles);
     articles.forEach(e => 
       e.likes.forEach(a => {
         if(a == req.params.name){
