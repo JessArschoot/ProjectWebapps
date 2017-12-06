@@ -48,7 +48,7 @@ export class ArticleComponent implements OnInit {
   }
 
   addLike(){
-    if(this._user.username){
+    if(this._user == undefined){
       if(this._like == false)
       {
         var model = {
