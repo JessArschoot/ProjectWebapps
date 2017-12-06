@@ -22,7 +22,13 @@
   
   <div class="field">
       <label for="name">Name:</label>
-      <input type="name" id="name" formControlName='name'>
+      <input type="text" id="name" formControlName='name'>
+  </div>
+  <div class='ui pointing red basic label' *ngIf=' user.get("name").errors?.required && user.get("name").touched'>
+    a name is required
+  </div>
+  <div class='ui pointing red basic label' *ngIf='user.get("name").errors?.minlength && user.get("name").touched'>
+    the name should be at least {{user.get("name").errors?.minlength.requiredLength }} letters
   </div>
   <div formGroupName='passwordGroup'>
     <div class="field">
