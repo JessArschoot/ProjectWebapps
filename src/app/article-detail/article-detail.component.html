@@ -51,6 +51,12 @@
         <div class="field">
           <textarea formControlName='text'></textarea>
         </div>
+        <div class='ui pointing red basic label' *ngIf=' article.get("text").errors?.required && article.get("text").touched'>
+          Dit veld is verplicht!
+         </div>
+        <div class='ui pointing red basic label' *ngIf=' article.get("text").errors?.minlength && article.get("text").touched'>
+          Inhoud is te kort! Het moet {{article.get("text").errors?.minlength.requiredLength }} karakters bevatten!
+         </div>
         <div *ngIf="_user">
           <div class="metadata">
             <img class="ui avatar image" id="userPic" src='data:image/jpg;base64,{{_user.picture}}'>{{user}}

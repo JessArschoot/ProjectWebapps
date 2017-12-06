@@ -10,7 +10,7 @@
         Verplicht toe te voegen!
        </div>
        <div class='ui pointing red basic label' *ngIf=' article.get("title").errors?.minlength && article.get("title").touched'>
-        Inhoud is te kort! Het moet {{article.get("title").errors?.minlength.requiredLength }} bevatten!
+        Inhoud is te kort! Het moet {{article.get("title").errors?.minlength.requiredLength }} karakters bevatten!
        </div>
       <div class="field">
           <label >Land
@@ -32,7 +32,7 @@
         Verplicht toe te voegen!
        </div>
        <div class='ui pointing red basic label' *ngIf=' article.get("text").errors?.minlength && article.get("text").touched'>
-        Inhoud is te kort! Het moet {{article.get("text").errors?.minlength.requiredLength }} bevatten!
+        Inhoud is te kort! Het moet {{article.get("text").errors?.minlength.requiredLength }} karakters bevatten!
        </div>
       <div class="field">
           <label>Foto
