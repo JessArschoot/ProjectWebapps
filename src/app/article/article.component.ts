@@ -45,4 +45,31 @@ export class ArticleComponent implements OnInit {
       });
     }
   }
+
+  addLike(){
+    if(this._like == false)
+    {
+      var model = {
+        username: this._user.username,
+      }
+      this.service.addLike(this.article._id, model).subscribe(data =>{
+        //this._article.likes.push(data.user);
+        console.log(data);
+      });
+      this._like = true;
+      this.article.likes.push(this._user.username);
+    }
+    else{
+      var model = {
+        username: this._user.username,
+      }
+      this.service.removeLike(this.article._id, model).subscribe(data =>{
+        console.log(data);
+      });
+      this._like = false;
+      this.article.likes.pop();
+    }
+   
+    console.log(this.article.likes);
+  }
 }
