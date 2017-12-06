@@ -66,18 +66,21 @@ export class ArticleDetailComponent implements OnInit {
         username: this._user.username,
       }
       this.service.addLike(this._article._id, model).subscribe(data =>{
-        this._article.likes.push(data.user);
-        this._like = true;
+        //this._article.likes.push(data.user);
+        console.log(data);
       });
+      this._like = true;
+      this._article.likes.push(this._user.username);
     }
     else{
       var model = {
         username: this._user.username,
       }
       this.service.removeLike(this._article._id, model).subscribe(data =>{
-        this._article.likes.pop();
-        this._like = false;
+        console.log(data);
       });
+      this._like = false;
+      this._article.likes.pop();
     }
    
     console.log(this._article.likes);
