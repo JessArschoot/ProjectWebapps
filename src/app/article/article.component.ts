@@ -15,6 +15,7 @@ declare var $: any;
 export class ArticleComponent implements OnInit {
   @Input() public article: Article
   _user: User;
+  _userArticle: User;
   user: string;
   _like: Boolean= false;
   constructor(private service: ArticleService, private userService: UserService, private router: Router) {
@@ -26,8 +27,7 @@ export class ArticleComponent implements OnInit {
    }
 
   ngOnInit() {
-    if(this.user != null){
-      console.log('hij is hier');
+    if(this._user != null){
       this.userService.getUser(this.user).subscribe(data => {
         this._user = new User(data.name, data.username, data.picture)
         if(this._user != null){
@@ -45,6 +45,10 @@ export class ArticleComponent implements OnInit {
       }
       });
     }
+      this.userService.getUser(this.article.username).subscribe(data => {
+        this._userArticle = new User(data.name, data.username, data.picture);
+      });
+ 
   }
 
   addLike(){

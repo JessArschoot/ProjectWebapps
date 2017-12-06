@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "node ./bin/www",
+    "start": "source app-env && node ./bin/www",
     "startTest": "source app-env-spec && node ./bin/www",
     "build": "ng build",
     "test": "node ./node_modules/jasmine/bin/jasmine.js ",

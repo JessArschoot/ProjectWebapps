@@ -59,7 +59,6 @@ export class AddArticleComponent implements OnInit {
         var data = r.result.split(',')[1];
         var model = {
           username: this._user.username,
-          userpic: this._user.picture,
           date: new Date(),
           nation: this.article.value.nation,
           title: this.article.value.title,

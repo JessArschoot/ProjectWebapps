@@ -55,8 +55,9 @@ router.post('/checkusername', function(req, res, next) {
   // }
 });
 
-router.get('/user/:name',auth, function(req, res, next){
+router.get('/user/:name', function(req, res, next){
   console.log(req.params.name);
+  console.log('tralalala');
   User.findOne({
     username: req.params.name
   }, function(err, result){

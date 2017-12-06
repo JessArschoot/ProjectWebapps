@@ -1,5 +1,5 @@
 <div *ngIf="_article">
-
+<div *ngIf="_userArticle">
   <div class="ui items">
     <div class="item">
       <div class="ui medium image">
@@ -8,7 +8,7 @@
       <div class="content">
         <div class="header">{{_article.nation}} -- {{_article.title}}</div>
         <div class="right floated author">
-          <img class="ui avatar image" src="data:image/jpg;base64,{{_article.userpic}}"> {{_article.username}}
+          <img class="ui avatar image" src="data:image/jpg;base64,{{_userArticle.picture}}"> {{_article.username}}
           <sub>{{_article.date | date: 'dd/MM/yyyy'}}</sub>
         </div>
         <div class="meta">
@@ -70,4 +70,5 @@
       </form>
     </div>
   </div>
+</div>
 </div>

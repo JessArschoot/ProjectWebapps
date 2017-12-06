@@ -18,7 +18,7 @@ export class ArticleListComponent implements OnInit {
   public user: string;
   public _user: User;
   public _nations: string[];
-  filter: Article = new Article("", "", "",new Date(),"","",[],[],"");
+  filter: Article = new Article("", "",new Date(),"","",[],[],"");
  
     constructor(private fb: FormBuilder, private service: ArticleService, private userService: UserService) {
         let jsonUser = JSON.parse(localStorage.getItem('currentUser'))

@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: Http, private auth: AuthenticationService) { }
   getUser(name): Observable<User> {
-    return this.http.get("/API/users/user/"+name,{ headers: new Headers({Authorization: `Bearer ${this.auth.token}`}) }).map(response =>
+    return this.http.get("/API/users/user/"+name).map(response =>
     response.json() )
   }
 
