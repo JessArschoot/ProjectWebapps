@@ -6,8 +6,11 @@
         <input type="text" value="title" formControlName="title"/>
         </label>
       </div>
-      <div class='ui pointing red basic label' *ngIf=' article.get("title").errors?.required && user.get("username").touched'>
+      <div class='ui pointing red basic label' *ngIf=' article.get("title").errors?.required && article.get("username").touched'>
         Verplicht toe te voegen!
+       </div>
+       <div class='ui pointing red basic label' *ngIf=' article.get("title").errors?.minlength && article.get("title").touched'>
+        Inhoud is te kort! Het moet {{article.get("title").errors?.minlength.requiredLength }} bevatten!
        </div>
       <div class="field">
           <label >Land
@@ -17,11 +20,20 @@
           </select>
           </label>
       </div>
+      <div class='ui pointing red basic label' *ngIf=' article.get("nation").errors?.required && article.get("nation").touched'>
+        Verplicht toe te voegen!
+       </div>
       <div class="field">
           <label>Artikel
         <textarea formControlName='text'></textarea>
         </label>
       </div>
+      <div class='ui pointing red basic label' *ngIf=' article.get("text").errors?.required && article.get("text").touched'>
+        Verplicht toe te voegen!
+       </div>
+       <div class='ui pointing red basic label' *ngIf=' article.get("text").errors?.minlength && article.get("text").touched'>
+        Inhoud is te kort! Het moet {{article.get("text").errors?.minlength.requiredLength }} bevatten!
+       </div>
       <div class="field">
           <label>Foto
          <input name="picture" id='picture' type="file" #fileInput>
