@@ -50,30 +50,37 @@ export class AddArticleComponent implements OnInit {
   }
   addArticle() {
     console.log(this.article.value.nation);
-    let fileBrowser = this.fileInput.nativeElement;
-    let f = fileBrowser.files[0];
-    let r = new FileReader();
-    r.readAsDataURL(f);
-    r.onload = (e) => {
-      var data = r.result.split(',')[1];
-      var model = {
-        username: this._user.username,
-        userpic: this._user.picture,
-        date: new Date(),
-        nation: this.article.value.nation,
-        title: this.article.value.title,
-        text: this.article.value.text,
-        picture: data,
-        likes: 0,
-
+    if(this.fileInput.nativeElement.files.length != 0){
+      let fileBrowser = this.fileInput.nativeElement;
+      let f = fileBrowser.files[0];
+      let r = new FileReader();
+      r.readAsDataURL(f);
+      r.onload = (e) => {
+        var data = r.result.split(',')[1];
+        var model = {
+          username: this._user.username,
+          userpic: this._user.picture,
+          date: new Date(),
+          nation: this.article.value.nation,
+          title: this.article.value.title,
+          text: this.article.value.text,
+          picture: data,
+          likes: 0,
+  
+        }
+        this.service.addArticle(model).subscribe(data => {
+          this.event.emit(data);
+        });
+        //this._articles.push(new Article(this._user.username, this._user.picture, model.date, model.title, model.text, model.likes,[], model.picture));
+        this.article.get("text").setValue("");
+        this.article.get("title").setValue("");
+        this.article.get('nation').setValue('');
       }
-      this.service.addArticle(model).subscribe(data => {
-        this.event.emit(data);
-      });
-      //this._articles.push(new Article(this._user.username, this._user.picture, model.date, model.title, model.text, model.likes,[], model.picture));
-      this.article.get("text").setValue("");
-      this.article.get("title").setValue("");
-      this.article.get('nation').setValue('');
+  
+    }
+    else
+    {
+      alert("foto is verplicht");
     }
 
   }
