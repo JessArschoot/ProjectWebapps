@@ -73,26 +73,29 @@ export class RegisterComponent implements OnInit {
     }
   }
   onSubmit() {
-    console.log(this.fileInput.nativeElement.files);
-    let fileBrowser = this.fileInput.nativeElement;
-    let data;
-  
-    let f = fileBrowser.files[0];
-   
-    let r = new FileReader();
-    r.readAsDataURL(f);
-    r.onload= (e) => {
-    data = r.result.split(',')[1];
-    this.authenticationService.register(this.user.value.username, this.passwordControl.value, this.user.value.name, data).subscribe(val => {
-      if (val) {
-        this.router.navigate(['article/list']);
-      }
-      else{
-        alert("Foto moet toegevoegd zijn!");
-        this.router.navigate(['register/']);
-      }
+    if(this.fileInput.nativeElement.files.length != 0){
+      let fileBrowser = this.fileInput.nativeElement;
+      let data;
+    
+      let f = fileBrowser.files[0];
+     
+      let r = new FileReader();
+      r.readAsDataURL(f);
+      r.onload= (e) => {
+      data = r.result.split(',')[1];
+      this.authenticationService.register(this.user.value.username, this.passwordControl.value, this.user.value.name, data).subscribe(val => {
+        if (val) {
+          this.router.navigate(['article/list']);
+        }
+       
+      });
+    }
+  }
+    else
+    {
+        alert("Foto is verplicht");
+    }
 
-    });
 
     //console.log(data2);
     //send your binary data via $http or $resource or do anything else with it
