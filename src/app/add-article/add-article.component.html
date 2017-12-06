@@ -6,6 +6,9 @@
         <input type="text" value="title" formControlName="title"/>
         </label>
       </div>
+      <div class='ui pointing red basic label' *ngIf=' article.get("title").errors?'>
+        Verplicht toe te voegen!
+       </div>
       <div class="field">
           <label >Land
           <select formControlName= "nation"> 
