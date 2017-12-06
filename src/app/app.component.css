@@ -47,7 +47,7 @@ footer{
     z-index:1;
     background-repeat: repeat-y;
 }
-nav[_ngcontent-c0] a[_ngcontent-c0]:hover {
+nav[_ngcontent-c0] a[_ngcontent-c0]:active {
     border-bottom: 2px solid #3f7d91;
     padding-bottom: .5em;
 }
