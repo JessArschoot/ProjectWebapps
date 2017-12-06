@@ -2,3 +2,6 @@
     width:35%;
 
 }
+.ui.pointing.label, .ui[class*="pointing above"].label {
+    margin-top: 0; 
+}
