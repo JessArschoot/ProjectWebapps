@@ -3,10 +3,10 @@
 <div class="ui header customheader">
   <div class="logo">WanderFull</div>
   <nav>
-      <a class='item' routerLinkActive='active' routerLink="article/list">Articles</a>
+      <a class='item' routerLinkActive='active' routerLink="article/list">Overzicht</a>
       <a *ngIf='(currentUser | async)' class="item" routerLinkActive='active' routerLink="/user">{{currentUser|async}}</a>
       <a *ngIf='!(currentUser | async)' class="item" routerLinkActive='active' routerLink="/login">log in</a>
-      <a class='item' *ngIf='user' routerLinkActive='active' routerLink="/logout">Log out</a>
+      <a class='item' *ngIf='user' routerLinkActive='active' routerLink="/logout">Log uit</a>
 </nav>
 </div>
 
