@@ -72,9 +72,7 @@ export class AddArticleComponent implements OnInit {
           this.event.emit(data);
         });
         //this._articles.push(new Article(this._user.username, this._user.picture, model.date, model.title, model.text, model.likes,[], model.picture));
-        this.article.get("text").setValue("");
-        this.article.get("title").setValue("");
-        this.article.get('nation').setValue('');
+       this.article.reset();
       }
   
     }
