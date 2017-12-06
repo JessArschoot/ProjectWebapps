@@ -13,8 +13,8 @@
     </div>
     <div class="extra content">
        <div class="meta">
-            <a class="like ">
-              <i  [ngClass]="_like?'red heart icon':'empty heart icon'" (click)="addLike()"></i> {{article.likes.length}} Likes
+            <a class="like " (click)="addLike()">
+              <i  [ngClass]="_like?'red heart icon':'empty heart icon'" ></i> {{article.likes.length}} Likes
             </a>
             <a class="comment" >
                 <i class="comment icon"></i>{{article.comments.length}} Comments
