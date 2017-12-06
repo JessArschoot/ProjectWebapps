@@ -86,6 +86,10 @@ export class RegisterComponent implements OnInit {
       if (val) {
         this.router.navigate(['article/list']);
       }
+      else{
+        alert("Foto moet toegevoegd zijn!");
+        this.router.navigate(['register/']);
+      }
 
     });
 
