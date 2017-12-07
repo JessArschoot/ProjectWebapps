@@ -87,7 +87,7 @@ export class ArticleDetailComponent implements OnInit {
       date: new Date(),
       text: this.comment.value.text,
     }
-    this.service.addComment(this._article._id, model).subscribe(data=> this._article.comments.push(new Comment(data.user, data.date, data.text)));
+    this.service.addComment(this._article._id, model).subscribe(data=> this._article.comments.push(data));
     ;
     this.comment.reset();
   }
