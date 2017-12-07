@@ -38,6 +38,7 @@
               <a class="author">{{feed.user.username}}</a>
               <div class="metadata">
                 <span class="date">{{feed.date | date : 'dd/MM/yyyy'}}</span>
+                <a *ngIf="user == feed.user.username" (click)="removeComment(feed)"><i class="remove circle icon"></i></a>
               </div>
               <div class="text">
                 {{feed.text}}

@@ -37,4 +37,8 @@ export class ArticleService {
     return this.http.post("/API/article/remove-like/"+id,model,{ headers: new Headers({Authorization: `Bearer ${this.auth.token}`})}).map((response: Response) => response.json());
   }
 
+  removeComment(id:string, model: any){
+    return this.http.post("/API/article/remove-comment/"+id,model, { headers: new Headers({Authorization: `Bearer ${this.auth.token}`})}).map((response: Response) => response.json());
+  }
+
 }

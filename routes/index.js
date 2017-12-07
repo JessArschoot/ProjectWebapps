@@ -87,6 +87,27 @@ router.post('/article/add-article', auth, function(req, res, next){
   
   
   });
+router.post('/article/remove-comment/:id', auth, function(req, res, next){
+  Comment.find({
+      _id: req.params.id
+  }).remove().exec(function(err, comment){
+    if(err){console.log(err.message);return next(err);}
+    Article.findOne({
+      _id:req.body.id
+    }, function(err, article){
+      if(err){return next(err);}
+      article.comments.forEach(function(item, index, object) {
+        if(item == req.params.id){
+          object.splice(index, 1);
+        }
+      });
+      article.save(function(err){
+        if(err){return next(err);}
+        res.json(article);
+      });
+    });
+  })
+})
 
 router.post('/article/add-comment/:id', auth, function(req, res, next){
   console.log(req.params.id);
