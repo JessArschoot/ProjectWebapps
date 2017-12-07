@@ -83,13 +83,12 @@ export class ArticleDetailComponent implements OnInit {
   }
   addComment(){
     var model = {
-      name: this.user,
-      userpic: this._user.picture,
+      user: this._user,
       date: new Date(),
       text: this.comment.value.text,
     }
     this.service.addComment(this._article._id, model).subscribe(data => console.log(data));
-    this._article.comments.push(new Comment(model.name,model.userpic, model.date, model.text));
+    this._article.comments.push(new Comment(model.user, model.date, model.text));
     this.comment.reset();
   }
 

@@ -17,9 +17,10 @@ router.get('/articles', function(req, res, next) {
 });
 
 router.get('/article/:id', auth, function(req, res, next) {
+  var populateQuery = [{path:"comments", model:"Comment", populate: {path: "user", model:"User"}}];   
   Article.findOne({
     _id: req.params.id,
-  }).populate('comments').populate('user').exec( function(err, article){
+  }).populate(populateQuery).populate('user').exec( function(err, article){
     if (err) { return next(err); }
     res.json(article);
   })
@@ -89,16 +90,24 @@ router.post('/article/add-article', auth, function(req, res, next){
 
 router.post('/article/add-comment/:id', auth, function(req, res, next){
   console.log(req.params.id);
-  console.log(req.body);
+  console.log(req.body.user.username);
+  User.findOne({
+    username: req.body.user.username,
+  }, function(err, user){
+    if(err) {
+      console.log(err.message);
+      return next(err);}
+
+    if(!user) {
+      console.log("Geen user");
+    }
 
   var newComment = new Comment({
     date: req.body.date,
     text: req.body.text,
-    username: req.body.name,
-    userpic: req.body.userpic,
-  })
+    user: user,
 
-  console.log(newComment);
+  })
 
   Article.findOne({
     _id: req.params.id,
@@ -114,8 +123,9 @@ router.post('/article/add-comment/:id', auth, function(req, res, next){
 
     newComment.save(function(err) {
       if (err){ 
-        console.log(err.message);
-        handleError(res, err.message, "mislukt"); }
+        //console.log(err.message);
+        handleError(res, err.message, "mislukt"); 
+      }
     });
 
     article.save(function(err){
@@ -123,8 +133,10 @@ router.post('/article/add-comment/:id', auth, function(req, res, next){
         console.log(err.message);
         handleError(res, err.message, "mislukt"); }
     })
+
     res.json(article);
   });
+});
 });
 
 module.exports = router;

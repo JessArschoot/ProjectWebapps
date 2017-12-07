@@ -32,10 +32,10 @@
           <div class="commentLayout">
           <div class="comment">
             <a class="avatar">
-              <img src='data:image/jpg;base64,{{feed.userpic}}'>
+              <img src='data:image/jpg;base64,{{feed.user.picture}}'>
             </a>
             <div class="content">
-              <a class="author">{{feed.username}}</a>
+              <a class="author">{{feed.user.username}}</a>
               <div class="metadata">
                 <span class="date">{{feed.date | date : 'dd/MM/yyyy'}}</span>
               </div>
