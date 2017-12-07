@@ -12,3 +12,13 @@
     border-bottom: 1px solid rgba(34,36,38,.15);
     margin-bottom: 0.75em;
 }
+
+.ui.comments .comment .avatar img, .ui.comments .comment img.avatar {
+    display: block;
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+    border-radius: .25rem;
+    padding-bottom: 1em;
+    object-fit: scale-down;
+}
