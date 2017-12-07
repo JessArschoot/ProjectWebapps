@@ -35,12 +35,13 @@ export class ArticleComponent implements OnInit {
             this._like = false;
           }
         });
+        this.userService.getUser(this.user).subscribe(data => {
+          this._user = new User(data.name, data.username, data.picture)});
       }
       else{
         this._like = false;
       }
-      this.userService.getUser(this.user).subscribe(data => {
-        this._user = new User(data.name, data.username, data.picture)});
+      
   }
 
   addLike(){
