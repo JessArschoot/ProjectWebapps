@@ -147,6 +147,7 @@ router.post('/article/add-comment/:id', auth, function(req, res, next){
         //console.log(err.message);
         handleError(res, err.message, "mislukt"); 
       }
+      res.json(newComment);
     });
 
     article.save(function(err){
@@ -155,7 +156,7 @@ router.post('/article/add-comment/:id', auth, function(req, res, next){
         handleError(res, err.message, "mislukt"); }
     })
 
-    res.json(article);
+   
   });
 });
 });
