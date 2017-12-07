@@ -26,13 +26,9 @@ export class ArticleComponent implements OnInit {
    }
 
   ngOnInit() {
-    console.log(this.article.user.picture);
     if(this.user != null){
-      this.userService.getUser(this.user).subscribe(data => {
-        this._user = new User(data.name, data.username, data.picture)
-        if(this._user != null){
         this.article.likes.forEach(item =>{
-          if(item == this._user.username){
+          if(item == this.user){
             this._like = true;
           }
           else{
@@ -43,8 +39,8 @@ export class ArticleComponent implements OnInit {
       else{
         this._like = false;
       }
-      });
-    }
+      this.userService.getUser(this.user).subscribe(data => {
+        this._user = new User(data.name, data.username, data.picture)});
   }
 
   addLike(){
