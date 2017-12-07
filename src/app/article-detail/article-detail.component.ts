@@ -87,16 +87,21 @@ export class ArticleDetailComponent implements OnInit {
       date: new Date(),
       text: this.comment.value.text,
     }
-    this.service.addComment(this._article._id, model).subscribe();
-    this._article.comments.push(new Comment(model.user, model.date, model.text));
+    this.service.addComment(this._article._id, model).subscribe(data=> this._article.comments.push(new Comment(data.user, data.date, data.text)));
+    ;
     this.comment.reset();
   }
   removeComment(comment: Comment){
+    if(comment._id){
     var model= {
       id: this._article._id
     }
     this.service.removeComment(comment._id,model).subscribe();
     this._article.comments.splice(this._article.comments.indexOf(comment),1 );
+  }
+  else{
+    alert("refresh and try again");
+  }
   }
 
 }
