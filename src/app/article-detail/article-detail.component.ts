@@ -92,16 +92,14 @@ export class ArticleDetailComponent implements OnInit {
     this.comment.reset();
   }
   removeComment(comment: Comment){
-    if(comment._id){
+  
     var model= {
       id: this._article._id
     }
     this.service.removeComment(comment._id,model).subscribe();
     this._article.comments.splice(this._article.comments.indexOf(comment),1 );
-  }
-  else{
-    alert("refresh and try again");
-  }
+  
+ 
   }
 
 }
